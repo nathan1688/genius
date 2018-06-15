@@ -2,12 +2,12 @@
 
 ![](https://i.imgur.com/cqLH6Bs.jpg)  
 
-## Goals  
+## 목표  
 ---
 
-•	Get to know the ADKeypad.  
-•	Make something with ADKeypad.  
-•	Make something with Buzzer.  
+•	ADKeypad를 사용하는 방법.  
+•	ADKeypad를 이용해 프로젝트 제작.  
+•	Buzzer를 이용한 프로젝트 .  
 
 
 ## Materials  
