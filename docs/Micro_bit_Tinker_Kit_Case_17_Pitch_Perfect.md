@@ -1,14 +1,12 @@
 ![](https://i.imgur.com/HYkxR5d.jpg)
 
-Do you think your ears are pitch perfect, then try my game. Or even better, create one!
 
-
-## Goals    
+## 목표 
 ---
 
-- Learn how to use a ADKeypad, the OLED screen and the buzzer.
-- Make something with a ADKeypad, OLED screen and the buzzer.
-- Learn the if-else statement functionality.
+-ADKeypad, OLED, buzzer를 사용하는 방법.
+-ADKeypad, OLED, buzzer를 이용해 프로젝트 제작.
+-if-else 문법 익히기.
 
 ![](https://i.imgur.com/lNJbWPG.jpg)
  
