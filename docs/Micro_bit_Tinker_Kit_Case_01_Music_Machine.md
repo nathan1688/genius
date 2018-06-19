@@ -13,15 +13,15 @@
 ## 구성품목  
 ---
 
-1 x [BBC Micro:bit Board](http://www.elecfreaks.com/estore/bbc-micro-bit-board-for-coding-programming.html)  
-1 x Micro USB cable  
-1 x [ElecFreaks Micro:bit Breakout Board](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-breakout-board.html)  
-1 x [Octopus Passive buzzer Brick](http://www.elecfreaks.com/estore/octopus-passive-buzzer-brick-obpb01.html)  
-1 x [Octopus ADKeypad](http://www.elecfreaks.com/estore/octopus-adkeypad.html)  
+1 x [BBC 마이크로비트 보드](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+1 x 마이크로 USB 케이블  
+1 x [지니어스 키트 센서비트보드](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+1 x [부저 모듈](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+1 x [ADKeypad](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
 
 ![](https://i.imgur.com/BJ5WTuI.jpg)  
 
-Tips: If you want all components above, you may need [ElecFreaks Micro:bit Tinker Kit](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-tinker-kit.html).  
+Tips: 위의 모든 구성요소를 활용 하고 싶으시다면 해당 키트를 구매해 주세요 [마이크로비트 지니어스 키트](http://www.icbanq.com/shop/templete_list.asp?t_idx=163).  
 
 
 ## How to Make  
