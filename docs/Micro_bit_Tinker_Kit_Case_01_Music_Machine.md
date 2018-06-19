@@ -43,35 +43,36 @@ ADKeypad 모듈을 Pin 2 에 연결해 주세요.
  
 #### Step 3  
 
-Click on Advanced in the Code Drawer to see more code sections.  
+마이크로비트 블럭 에디터에서 Advanced 를 클릭해 본다면 좀더 많은 블럭코드를 사용 할 수 있습니다.  
 
 ![](https://i.imgur.com/8wKkVPE.jpg)  
 
-To code for our extra kit components (the ADKeypad and the buzzer), we have to add a package of code.Look at the bottom of the Code Drawer for “Add Package” and click it. This will open up a dialogue box.  
-Search for "tinker kit" and click on it to download this package.  
+추가 키트 구성 요소를 코딩하려면 코드 패키지를 추가 해야합니다. "Add Package"의 하단을 클릭하면 대화 상자가 열리고 "tinker kit"를 검색하여 패키지를 다운로드 해 주세요.  
 
 ![](https://i.imgur.com/gvuN2rQ.png)  
 
-Note: If you get a warning telling you some packages will be removed because of incompatibility issues, either follow the prompts or create a new project in the Projects file menu.  
+Note: 만약 비 호환성 문제로 인해 일부 패키지가 제거된다는 경고 메시지가 표시된다면 프로젝트 파일 메뉴에서 프롬프트를 새로 만들면됩니다.  
 
 
 #### Step 4  
 
-Next, let’s create a conditional statement as shown in the picture. This ‘if-then’ block of code is under the code section “Logic” of the code drawer.The code shown below means that when button A is pressed on the ADKeypad while the ADKeypad is plugged in at pin P2 of the breakout board, the buzzer will play a sound of 175 hertz.  
+아래 그림과 같이 조건문을 만들어 보겠습니다. 'if-then' 코드 블록은 코드 카테고리에서 "Logic"코드 섹션 아래에 있습니다.
+아래에 표시된 코드는 ADKeypad가 센서비트 보드의 P2 핀에 연결 되어있는 동안 ADKeypad에서 A 버튼을 누르면, 부저는 175Hz 주파수의 소리를 재생합니다.
 
 ![](https://i.imgur.com/5bFh8GO.jpg)  
  
-Since there are 5 buttons, we need to code 5 similar conditional statements. Each button controls a sound of a particular pitch. So press each buttion, we will get sounds of different pitches.  
+ADkeypad에는 5개의 버튼이 있음으로, 5개의 유사한 조건문을 코딩해야합니다.
+각 버튼은 특정 음의 사운드를 제어합니다. 따라서 각각의 버튼을 누르면 다른 음의 소리가 나옵니다.
 
 ![](https://i.imgur.com/mAvF9Oi.jpg)  
 
-If you don't want to type these code by yourself, you can download it directly from the link below:  
+이 코드를 직접 만들기가 어렵다면 아래의 링크를 통해 직접 다운로드가 가능합니다.:  
 
 [https://makecode.microbit.org/_Aw1LAP8VdCs0](https://makecode.microbit.org/_Aw1LAP8VdCs0)
 
-Or, you can download from the page below:  
+혹은, 아래의 페이지에서 다운로드 할 수 있습니다.:  
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_Aw1LAP8VdCs0" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>    
 
 
-Success! Now you have your own Micro:bit Music Machine.    
+자!!이제 자신 만의 마이크로비트 뮤직 키트가 생겼습니다!    
