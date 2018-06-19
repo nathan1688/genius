@@ -24,20 +24,20 @@
 Tips: 위의 모든 구성요소를 활용 하고 싶으시다면 해당 키트를 구매해 주세요 [마이크로비트 지니어스 키트](http://www.icbanq.com/shop/templete_list.asp?t_idx=163).  
 
 
-## How to Make  
+## 프로젝트 만드는 방법  
 ---
 
 #### Step 1  
 
-After connecting one end of the USB cable to your computer, connect the other end to the micro:bit as shown in the picture below.Then connect the side of the micro:bit where the pins are located to the breakout board.  
+USB 케이블을 컴퓨터에 연결 한 후 아래 그림과 같이 다른 쪽 끝을 마이크로비트에 연결합니다. 그런다음 핀이 있는 마이크로비트를 센서비트에 연결합니다.  
 
 ![](https://i.imgur.com/DdX7fE9.jpg)  
 
 #### Step 2  
 
-Plug in the buzzer Brick to Pin 0.  
-Plug in the ADKeypad to Pin 2.  
-Make sure the colour of the wire of the buzzer and the ADKeypad follows the colour of the pins on the breakout board.  
+부저 모듈을 Pin 0 에 연결해 주세요.  
+ADKeypad 모듈을 Pin 2 에 연결해 주세요.  
+부저 모듈과 ADKeypad 모듈의 케이블 색상이 센서비트의 핀 색상과 동일한 곳에 결합 하였는지 확인해 주세요.
  
 ![](https://i.imgur.com/EhTHEaU.jpg)  
  
