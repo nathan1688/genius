@@ -10,7 +10,7 @@
 •	Buzzer를 이용한 프로젝트 .  
 
 
-## Materials  
+## 구성품목  
 ---
 
 1 x [BBC Micro:bit Board](http://www.elecfreaks.com/estore/bbc-micro-bit-board-for-coding-programming.html)  
