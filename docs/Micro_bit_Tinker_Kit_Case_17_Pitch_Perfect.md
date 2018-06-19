@@ -4,9 +4,9 @@
 ## 목표 
 ---
 
--ADKeypad, OLED, buzzer를 사용하는 방법.
--ADKeypad, OLED, buzzer를 이용해 프로젝트 제작.
--if-else 문법 익히기.
+•	ADKeypad, OLED, buzzer를 사용하는 방법.
+•	ADKeypad, OLED, buzzer를 이용해 프로젝트 제작.
+•	if-else 문법 익히기.
 
 ![](https://i.imgur.com/lNJbWPG.jpg)
  
