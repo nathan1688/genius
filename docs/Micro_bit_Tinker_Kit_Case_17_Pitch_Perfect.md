@@ -57,7 +57,8 @@ ADKeypad를 핀 1에 연결하여 와이어의 색상과 지니어스 키트 센
 
 ![](https://i.imgur.com/WmBJnOV.png)
 
-Since at step 3 we wrote that you need to press A to start, we need to write a condition for it. A condition basically means a requirement for a program to start loading its instructions. Thus, an if-else statement of the A button being pressed would suffice. Moreover, this will be nested on a forever bracket.
+step 3에서 A를 눌러야 시작할 수 있다는 내용을 작성했으므로 조건문을 추가로 작성해보겠습니다.
+조건은 기본적으로 프로그램이 명령을시작하기 위한 요구 사항을 의미합니다. 따라서 A 버튼을 누르는 if-else 문으로 충분합니다. 또한, 이것은 괄호 안에 중첩됩니다.
 
 Next, you have to write another set of instructions on how to play the game. What I wrote was : “You have guess which pitch it is by pressing the correct key”. Then you have to have a timeout around 5000ms (5 seconds) to let the user read the instructions.
 
