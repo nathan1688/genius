@@ -1,8 +1,8 @@
 ![](https://i.imgur.com/jzfY1Q6.jpg)
 
-Anyone remembers the Snake game that used to come with old Nokia phones? This micro:bit version in glorious 5×5 resolution is easy to make and fun to play!
+오래된 핸드폰에서 하던 스네이크 게임을 기억하는 사람? 5X5 해상도의 마이크로비트 버전은 제작하기도 쉽고 재미있게 플레이할 수 있습니다!
 
-## Goals
+## 목표
 ---
 
 In this step by step guide, we will build a snake game from scratch, handling controls, movement, win and lose conditions, as well as the drawing of the game board.
@@ -12,18 +12,18 @@ In this step by step guide, we will build a snake game from scratch, handling co
 ## Materials
 ---
 
-- 1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)
-- 1 x Micro USB Cable 
-- 1x Patience (coding should take approx. 30 min)
+- 1 x [BBC 마이크로비트 보드](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+- 1 x 마이크로 USB 케이블
+- 1x 인내 (코딩은 약 30분의 시간이 소요됩니다.)
 
 
 ## Why Python?
 ---
 
-- Reads like English – Python is one of the easiest languages to read, which makes it such a fantastic beginner’s language.
+- 영어를 읽는 것처럼 – Python은 읽기 쉬운 언어 중 하나로,아주 훌륭한 초급 언어입니다.
 
 
-- Versatile – Python is industry standard for good reason. It can be used to do so much. This is why Google and YouTube utilise the language for part of its back-end software.
+- 다용도 – Python is industry standard for good reason. It can be used to do so much. This is why Google and YouTube utilise the language for part of its back-end software.
 
 
 - Active community – Python is one of the most popular languages for beginners. There are tons of resources and many more than willing to help look over your code, which will prove invaluable to helping you get over stumbling blocks in your coding journey.
