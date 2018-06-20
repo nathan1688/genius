@@ -50,10 +50,9 @@ ADKeypad를 핀 1에 연결하여 와이어의 색상과 지니어스 키트 센
 
 먼저, 화면을 적절한 크기로 작동하기 위해서는 64의 높이와 128의 너비로 OLED화면을 초기화해야 합니다.
 
-Next, you have to set a variable starting score to 0 for the initial play. This means you have a score of 0 at the start of your game. Then you need the OLED display show a text of “Pitch Perfect”.
+다음으로 시작 점수를 0으로 설정해야 합니다. 이것은 게임 시작 시 0점으로 시작함을 의미합니다. 그리고 OLED 디스플레이에 "Pitch Perfect "라는 텍스트를 출력합니다.
 
-You need to write a simple instruction on how to start. Thus, a simple sentence “Press A to start ” will do.
-
+"Press A to start"라는 문장으로 시작하는 방법에 대해 설명을 합니다.
 ### Step 4:  
 
 ![](https://i.imgur.com/WmBJnOV.png)
