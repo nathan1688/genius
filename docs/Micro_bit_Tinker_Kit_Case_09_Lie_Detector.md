@@ -29,50 +29,50 @@
 ## Goals    
 ---  
 
-- Get to know the Octopus LED and Soil Moisture Sensor   
-- Learn basic statistics   
-- Make something using the moisture sensor   
+- Octopus LED 와 토양 수분 센서 알아보기 
+- 기본 사용 방법 익히기
+- 모이스처 센서를 이용하여 무언가를 만들어 보기  
 
 
 ### Step 1 Components  
 
-First of all, plug in the soil moisture sensor. Match the colors and note down what pin you plug for it will influence later procedures. 
+우선, 토양 수분 센서를 연결하세요. 색상대로 플러그를 꽂아주셔야 합니다.
 
 ![](https://i.imgur.com/0VDR4st.jpg)  
 
-Next, plug in the Octopus LED. Any of the three slots should do.   
+다음으로, Octopus LED를 연결해주세요. 세개의 슬롯 중 하나를 사용하면 됩니다.  
 
 ![](https://i.imgur.com/SmP85nH.jpg)  
 
 
 ### Step 2 Pre-Coding  
 
-We’ll need to add a package of code to be able to use our kit components. Click on “Advanced” in the Code drawer to see more code sections and look at the bottom of the Code Drawer for “Add Package”.  
+키트구성 요소를 사용하시려면 코드 패키지를 추가해야합니다. 코드 드로잉의 "고급"을 클릭하면, 더 많은 코드 섹션을 볼 수 있으며, "패키지 추가" 의 코드 를 볼 수 있습니다.
 
 ![](https://i.imgur.com/BdLQ8AS.jpg)  
 
-This will open a dialog box. In “Add Package” text field search tinker kit.   
+대화상자가 열리면, "패키지 추가" 텍스트 필드에서 '팅커키트' 를 찾습니다.
 
 ![](https://i.imgur.com/8gYcTp1.png)  
 
-Note: If you get a warning telling you some packages will be removed because of incompatibility issues, either follow the prompts or create a new project in the Projects file menu.  
+참고 : 비 호환성 문제로 인하여 일부 패키지가 제거된다는 경고 메시지가 표시되면, 프로젝트 파일 메뉴에서 프롬프트를 따르거나 새 프로젝트를 만듭니다.
 
 
 ### Step 3 Coding  
 
-First of all, initialize the OLED using blocks in the OLED section as shown in the picture.  
+우선, 그림과 같이 OLED 섹션의 블록을 사용하여 OLED를 초기화 합니다.
 
 ![](https://i.imgur.com/L68fSV7.jpg)  
 
-This part of the code allows the soil moisture sensor to measure and record down the electrical conductivity between the two fingers every few seconds for about a minute. Then, it calculates the average. This is the “calm” value when the user has not told any lies.  
+이 코드는 토양 수분 센서가 약 1분동안 두 손가락 사이의 전기 전도도를 측정하고 기록하는 것을 허용하는 것 입니다. 그 다음 평균을 계산하는데, 이는 사용자가 거짓을 말하지 않았을 때의 "평온한 상태" 값 입니다.
 
 ![](https://i.imgur.com/EdWwt5m.jpg)  
 
-This part of the code calculates the standard deviation of the readings obtained in that first minute. The standard deviation indicates how different the readings were. A larger standard deviation means more variance in the readings. The “Math.sqrt” block square roots the given value and was added in Javascript.  
+이 코드는 처음 1분동안 얻은 판독 값의 표준 편차를 계산 합니다. 표준 편차는 판독 값이 얼마나 다른지 나타냅니다. 표준 편차가 클수록 판독 값의 편차도 커집니다. "Math.sqrt" 블록스퀘어는 주어진 값을 정의내리고, Javascript로 추가 합니다.
 
 ![](https://i.imgur.com/QHI8jfg.jpg)  
 
-After the initial readings have been made and recorded, the moisture sensor now measures the average electrical conductivity over five seconds. If it is higher than the average added to the standard deviation, we can conclude that the user has an abnormally high electrical conductivity and is thus lying. Then, the LED screen would show an “X”shape.  
+초기에 판독 값을 작성하고 기록한 후, 습도 센서는 평균 전기 전도도를 5초 이상 측정 합니다. 표준 편차에 더한 평균 보다 높으면, 사용자가 비정상 적으로 높은 전기전도도를 가지고 있다는 의미 이므로, "거짓" 임을 알 수 있습니다. 그런 다음 LED 화면에 "X"를 표시 합니다.
 
 ![](https://i.imgur.com/y5qv2l9.jpg)  
 
