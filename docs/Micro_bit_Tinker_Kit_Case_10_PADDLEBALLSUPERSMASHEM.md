@@ -67,20 +67,20 @@ xb는 왼쪽에서부터 패들의 첫번째 픽셀의 위치를 나타내며, y
 
 ![](https://i.imgur.com/c6jUmNb.png)  
 
-We now program the functions that control how the ball interacts with its surroundings. When the ball hits the side, its horizontal movement is reversed but its vertical movement remains the same. When the ball hits the ceiling, it can rebound in any direction, to make the game more fun.   
+이제 공이 주변 환경과 어떻게 상호 작용하는지 제어하는 기능을 프로그래밍합니다. 공이 측면을 치면 수평 운동으로 반전 되지만, 수직 운동은 동일하게 유지 됩니다. 공이 천장에 부딪힐 때 어떤 방향으로든 튀어나와 게임을 더 재미있게 만들 수 있습니다.
 
 ![](https://i.imgur.com/MrcNyKJ.png)  
 
-Most importantly, we need to see if the ball hits the paddle. If it misses, you lose, displaying your score! If it doesnt miss, the ball will also rebound in a random direction, and the difficulty of the game will increase.  
+가장 중요한 것은, 공이 패들에 닿는 지 확인해야합니다. 놓친 다면 점수를 잃게 됩니다. 놓지지 않을 경우 공이 임의의 방향으로 튀어나와서 게임의 난이도가 높아집니다.
 
 ![](https://i.imgur.com/WIXWKV0.png)  
 
-Lastly, we have a for loop which acts as a clock so that the ball keeps moving. Also, we have the onButtonPressed() functions that move the paddle.   
-Save your tired fingers and download the code from the link below.  
+마지막으로 볼을 움직이기 위해 시계 역할을 하는 for 루프가 있습니다. 또한, 우리는 외륜을 움직이는 onButtonPressed() 함수를 가지고 있습니다. 또한, 우리는 패들을 움직이는 onButtonPressed() 함수를 가지고 있습니다.
+아래 링크에서 코드를 바로 받아서 사용하세요.
 
 [https://makecode.microbit.org/63331-03858-42547-81536](https://makecode.microbit.org/63331-03858-42547-81536)  
 
-Or you can download from this page.  
+아니면,이 페이지에서 다운로드 가능합니다.
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:63331-03858-42547-81536" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>  
 
@@ -89,13 +89,13 @@ Or you can download from this page.
 
 ![](https://i.imgur.com/yARLugY.jpg)  
 
-Just connect the microcontroller to your computer, and run the program! Easy!  
+마이크로 컨트롤러를 컴퓨터에 연결하고 프로그램을 실행하세요!
 
 ![](https://i.imgur.com/cV3q2Ar.jpg)  
 
-If you score more than 12 points, you will be rewarded with a smiley face! Otherwise, the program may not be very pleased…  
+12점 이상을 획득하면, 승리를 할 수 있습니다!
 
 
 ### Step 5: Success!    
 
-Voila! You have now programmed PADDLEBALLSUPERSMASHEM on a 5 by 5 display. You should be proud of yourself.    
+이제 PADDLEBALLSUPERSMASHEM을 5x5 디스플레이에 프로그래밍 했습니다 !
