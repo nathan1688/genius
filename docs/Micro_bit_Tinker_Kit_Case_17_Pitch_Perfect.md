@@ -58,13 +58,13 @@ ADKeypad를 핀 1에 연결하여 와이어의 색상과 지니어스 키트 센
 ![](https://i.imgur.com/WmBJnOV.png)
 
 step 3에서 A를 눌러야 시작할 수 있다는 내용을 작성했으므로 조건문을 추가로 작성해보겠습니다.
-조건은 기본적으로 프로그램이 명령을시작하기 위한 요구 사항을 의미합니다. 따라서 A 버튼을 누르는 if-else 문으로 충분합니다. 또한, 이것은 괄호 안에 중첩됩니다.
+조건은 기본적으로 프로그램이 명령을시작하기 위한 요구 사항을 의미합니다. 따라서 A 버튼을 누르는 if-else 문으로 충분합니다.
 
-Next, you have to write another set of instructions on how to play the game. What I wrote was : “You have guess which pitch it is by pressing the correct key”. Then you have to have a timeout around 5000ms (5 seconds) to let the user read the instructions.
+다음으로, 게임을 하는 방법에 대한 다른 설명서를 추가합니다. "You have guess which pitch it is by pressing the correct key"를 출력한 다음 사용자가 설명서를 읽을 수 있도록 약 5000ms(5초)의 시간을 줍니다.
 
 ### Step 5:
 
-You are gonna introduce the user to listen to the pitch of the sound being played. What I did was to play the pitch (for example: C) for 4 beat (4 seconds), flash the led on the MicroBit of the pitch C and OLED display on the screen itself.
+연주되는 사운드의 음높이를 듣기 위해 옥타브 (예 : C)를 4 비트 (4 초) 동안 재생하고,  C의 MicroBit과 화면 자체에 OLED 디스플레이를 표시하는 것입니다.
 
 After that, I will put in a timeout so the user can process the pitch to the correct alphabet and the ADKeyboard. Additionally, you can put in the OLED screen on what buttons are to be pressed for a certain pitch. Example, when Pitch C is being played, I wrote “Left blue button” to indicate that is the button.
 
