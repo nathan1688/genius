@@ -1,24 +1,27 @@
 ![](https://i.imgur.com/2Pcz8rt.jpg)
 
-With this machine, the truth will never escape you! As long as you can make your subject hold a moisture sensor for a while.     
+마이크로비트를 이용하여, 거짓말 탐지기를 만들어보자! 
+모이스처 센서 하나면, 진실만을 말하게 된다!
 
 
 ## Step 0 – Pre Build Overview    
 ---
 
-In this project, we will create a simple lie detector machine, which works by measuring the electrical conductivity of our skin. Upon feeling nervous, our skin’s electrical conductivity will increase, and the moisture sensor can pick up on that. This allows us to determine if a person is telling the truth or not.   
+이 프로젝트에서 우리는, 피부의 전기 전도도를 측정하여 작동하는 간단한 거짓말 탐지기를 만들어 볼 것 입니다.
+사람은 긴장을 하면 피부의 전기 전도도가 증가하게 되는데, 모이스처 센서가 이를 감지할 수 있습니다.
+이러한 원리로 어떤사람이 진실을 말하고 있는지를 판단할 수 있게 해줍니다.
 
 
 ## Materials     
 ---  
 
-- 1 x [BBC micro:bit](http://www.elecfreaks.com/estore/bbc-micro-bit-board-for-coding-programming.html)  
-- 1 x Micro USB cable  
-- 1 x [Breakout board](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-breakout-board.html)  
+- 1 x [마이크로비트](http://www.elecfreaks.com/estore/bbc-micro-bit-board-for-coding-programming.html)  
+- 1 x 마이크로 USB 케이블 
+- 1 x [브레이크 아웃 보드](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-breakout-board.html)  
 - 1 x Octopus OLED  
-- 1 x [Moisture Sensor](http://www.elecfreaks.com/estore/octopus-soil-moisture-sensor-brick.html)  
+- 1 x [모이스처 센서](http://www.elecfreaks.com/estore/octopus-soil-moisture-sensor-brick.html)  
 
-Tips: If you want all components above, you may need [ElecFreaks Micro:bit Tinker Kit](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-tinker-kit.html).  
+팁: 위의 모든 구성 요소를 원하신다면, [마이크로비트 Genius KIT](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)가 필요할 수 있습니다.
 
 ![](https://i.imgur.com/eDFUaml.jpg)  
 
