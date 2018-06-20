@@ -64,40 +64,35 @@ step 3에서 A를 눌러야 시작할 수 있다는 내용을 작성했으므로
 
 ### Step 5:
 
-연주되는 사운드의 음높이를 듣기 위해 옥타브 (예 : C)를 4 비트 (4 초) 동안 재생하고,  C의 MicroBit과 화면 자체에 OLED 디스플레이를 표시하는 것입니다.
+연주되는 사운드의 음높이를 듣기 위해 옥타브 (예 : C)를 4 비트 (4 초) 동안 재생하고, 옥타브 C를 MicroBit LED와 OLED 디스플레이에 표시합니다.
 
-After that, I will put in a timeout so the user can process the pitch to the correct alphabet and the ADKeyboard. Additionally, you can put in the OLED screen on what buttons are to be pressed for a certain pitch. Example, when Pitch C is being played, I wrote “Left blue button” to indicate that is the button.
+그 다음, 사용자가 알파벳과 ADKeypad로 올바르게 처리할 수 있도록 시간 제한을 둡니다. 또한 특정 옥타브에 어떤 버튼을 눌러야 하는지를 OLED 디스플레이 표시합니다. 예를 들어, 옥타브 C가 재생되고 있을 때 "Left blue button"를 디스플레이하여 표시할 수 있습니다.
 
-If you are wondering, why the intialise OLED display and show string block is repeated, it is because it would simulate a refresh in web browser. If you do not initalise the display, the text would just be brought down instead of new text being created.
+OLED 디스플레이와 show string 블록이 반복되는 이유는 디스플레이를 초기화하지 않으면 새로운 텍스트가 작성이 되지 않기 때문입니다.
 
 ![](https://i.imgur.com/8abBXgw.png)
 
 ### Step 6:  
 
-Once the user have gone through the mini-briefing of how the pitch sounds, you can get them ready. You can have a countdown for them to get ready on the game itself.
+이제, 여러분은 여러분의 옥타브 테스트를 만들 수 있습니다. 이를 위해서는 옥타브를 재생해야 하며 "Key#1"이라는 메시지로 동시에 지정할 수 있습니다.
 
-Now, you can build your pitch tests. So, to do that, you need to play a pitch and you can customise by displaying by any image on the MicroBit and a message “Key #1” at the same time.
+그 다음 사용자가 ADKeypad에서 올바른 버튼을 누르면 포인트가 생기고 그렇지 않은 경우 포인트가 생기지 않습니다. 따라서 변수 점수가 올바른 경우 1로, 그렇지 않은 경우 -1로 설정합니다. 따라서 사용자가 올바른 버튼을 눌렀는지 여부에 대한 if-else문을 수행합니다.
 
-Then, if the user pressed the correct button on the ADKeypad, they would get a point. If not, no points. Thus you set the variable score to change by 1 if the get it correct and otherwise, a -1. Thus, an if-else statement on whether the user pressed the correct button will do.
-
-To let the user know if they got the correct answer, you can display of an image tick for a correct answer and a cross for a wrong answer.
-
-Repeat this step so you can have many tests to play with!
+사용자에게 정답 여부를 알려주기 위해 체크 표시와 X표시를 사용합니다.
 
 ![](https://i.imgur.com/CqWtEwD.png)
 ![](https://i.imgur.com/jl3ogKg.png)
 
 ### Step 7:  
 
-Once you are contempted with your tests, you can end the game by showing the latest scores. You can display in the OLED screen “Your score is:” with the variable score shown. Put a smiley for fun sake.
-And you are done! Enjoy the game.
+테스트가 완료되면 최신 점수를 표시하여 게임을 종료 할 수 있습니다. 점수가 표시된 상태로 OLED 디스플레이에 "Your score is :" 를 표시할 수 있습니다.
 
 ![](https://i.imgur.com/a4LAQac.png)
 
-If you don't want to type these code by yourself, you can directly download the whole program from the link below.
+이러한 코드를 직접 입력하지 않으려면 아래 링크에서 전체 프로그램을 직접 다운로드할 수 있습니다.
 
 [https://makecode.microbit.org/40622-92227-41289-45624](https://makecode.microbit.org/40622-92227-41289-45624)
 
-Or you can download from the page below.
+또는 아래 페이지에서 다운로드할 수 있습니다.
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_hFx5DY8ytKqD" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>
