@@ -14,31 +14,31 @@
 ## Materials Needed  
 ---
 
-- 1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)
-- 1 x Micro USB cable
-- 1 x [Buzzer](http://www.elecfreaks.com/estore/octopus-passive-buzzer-brick-obpb01.html)
-- 2 x [F-F Jumper Wires](http://www.elecfreaks.com/estore/40-pin-premium-female-female-jumper-wires.html)
-- 1 x [OLED](http://www.elecfreaks.com/estore/iic-oled.html)
-- 1 x [ADKeypad](http://www.elecfreaks.com/estore/octopus-adkeypad.html)
-- 1 x [Breakout Board](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-breakout-board.html)
+- 1 x [BBC 마이크로비트 보드](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+- 1 x 마이크로 USB 케이블
+- 1 x [부저 모듈](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+- 2 x [F-F 점퍼선](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+- 1 x [OLED](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+- 1 x [ADKeypad](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+- 1 x [지니어스 키트 센서비트 보드](http://www.icbanq.com/shop/templete_list.asp?t_idx=163) 
 
 
-## How to Make  
+## 프로젝트 만드는 방법  
 ---
 
 ### Step 1:  
 
-Firstly, plug in your buzzer to Pin 0, making sure the positive side (usually the longer end) is connected to the yellow signal pin and the negative end is connected to the black ground  pin on the breakout board.
+먼저, 부저를 핀 0에 꽂고 양극(대개 더 긴 쪽)이 노란 색 신호 핀에 연결되고 음극 끝이 지니어스 키트 센서 비트의 검은 색 접지 핀에 연결합니다.
 
-Plug in the ADKeypad to Pin 1, making sure that the colour of the wire and breakout board matches. Then, attach the OLED screen at the bottom left socket of the breakout board.
+ADKeypad를 핀 1에 연결하여 와이어의 색상과 지니어스 키트 센서비트 보드의 색이 일치하는지 확인합니다. 그런 다음, 지니어스 키트 센서비트 보드의 하단 좌측 소켓에 OLED화면을 부착합니다.
 
 ### Step 2:
 
 ![](https://i.imgur.com/CmT2k2T.png)
 
-We will need to add a package to the code editor to use the kit components. Click on the advanced in the micro bit text editor and you will see a section that says Add Package.
+키트 구성 요소를 사용하려면 코드 편집기에 패키지를 추가해야 합니다. 고급을 클릭하면 패키지 추가라는 섹션이 표시됩니다.
 
-This will open up a dialog box. Search for OLED. Click on the search icon or press enter, then select the oled-ssd1306.
+패키지 추가를 누르면 대화 상자가 열립니다. oled-ssd1306을 검색하여 추가해줍니다.
 
 ![](https://i.imgur.com/hykIyTd.png)
 
