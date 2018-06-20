@@ -38,17 +38,17 @@ ADKeypad를 핀 1에 연결하여 와이어의 색상과 지니어스 키트 센
 
 키트 구성 요소를 사용하려면 코드 편집기에 패키지를 추가해야 합니다. 고급을 클릭하면 패키지 추가라는 섹션이 표시됩니다.
 
-패키지 추가를 누르면 대화 상자가 열립니다. oled-ssd1306을 검색하여 추가해줍니다.
+패키지 추가를 누르면 대화 상자가 열리고 oled-ssd1306을 검색하여 추가해줍니다.
 
 ![](https://i.imgur.com/hykIyTd.png)
 
-Note: If you get a warning telling you some packages will be removed because of incompatibility issues, either follow the prompts or create a new project in the  Projects file menu.
+참고:비호환성 문제로 인해 일부 패키지가 제거된다는 경고가 표시되면 프로젝트 파일 메뉴에서 안내 메시지를 따르거나 새 프로젝트를 만드세요.
 
 ### Step 3:  
 
 ![](https://i.imgur.com/ZGzxDCO.png)
 
-First, you have to initialise the OLED screen to a height of 64 and width of 128 so to run the screen in the proper sizing.
+먼저, 화면을 적절한 크기로 작동하기 위해서는 64의 높이와 128의 너비로 OLED화면을 초기화해야 합니다.
 
 Next, you have to set a variable starting score to 0 for the initial play. This means you have a score of 0 at the start of your game. Then you need the OLED display show a text of “Pitch Perfect”.
 
