@@ -4,27 +4,29 @@
 
 ![](https://i.imgur.com/mNlJj4l.png)  
 
-In this project, we are going to create a simple alarm device which will alert the owner if someone has stolen his or her property. The red LED will blink when the crash sensor detects that the object has been taken away. Otherwise, the green LED will light up continuously. The OLED will display the status of the device.  
+이번 프로젝트는 도둑이 들었을 때를 대비해 도둑이 뭔가를 훔쳤을 때 그 사실을 사용자에게 알려주는 간단한 경보 장치를 만들어 보겠습니다.
+붉은색 LED는 충돌 센서가 물체에 움직임이 있었음을 감지하면 깜빡입니다. 만약 그렇지 않다면 초록색 LED가 계속 켜져 있을것입니다.
+OLED는 현재 장치의 상태를 표시합니다.
 
 ## Materials:    
 ---   
 
-1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)    
-1 x Micro USB Cable    
-1 x [Breakout board](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-breakout-board.html)    
-1 x [Octopus LED](https://www.elecfreaks.com/estore/octopus-5mm-led-brick-obled-white.html)    
-1 x [Crash Sensor](https://www.elecfreaks.com/estore/octopus-crash-sensor-brick.html)     
-1 x [OLED](https://www.elecfreaks.com/estore/iic-oled.html)    
+1 x [BBC 마이크로비트](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)    
+1 x 마이크로 USB 케이블    
+1 x [센서비트](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)    
+1 x [LED 모듈](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)    
+1 x [충돌 센서](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)     
+1 x [OLED](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)    
 1 x LED    
-2 x Female-Female Jumper Wires    
+2 x Female-Female 점퍼 케이블    
 
 
 ## Goals:    
 ---  
 
-- Get to know the Octopus LED, normal LED, Crash sensor and OLED.   
-- Make something with different types of LED.  
-- Make something with Crash sensor and OLED.  
+- LED모듈, 일반 LED, 충돌센서, OLED가 무엇인지 알아보기.  
+- 다른 종류의 LED를 이용해서 제작하기.  
+- 충돌 센서와 OLED를 사용하여 제작하기.  
 
 
 ## How to Make    
@@ -34,13 +36,12 @@ In this project, we are going to create a simple alarm device which will alert t
 
 ![](https://i.imgur.com/208tSHD.jpg)  
 
-Connect LED module to pin 1.  
+LED 모듈을 pin 1에 연결해 주세요.  
 
 ![](https://i.imgur.com/wGQpzcn.jpg)  
 ![](https://i.imgur.com/9yVjSuC.jpg)  
 
-Connect the USB cable to the micro:bit and then to the breakout board as shown in the picture above. Making sure that the colour of the wire follows the colour of the pins on the break out board, plug in the crash sensor to Pin 0 and the Octopus LED to Pin 8.   
-Lastly, plug in the OLED as shown in the picture above. You should be able to plug it into any of the three rows.  
+위의 그림과 같이 USB 케이블을 마이크로비트 센서비트 보드에 연결합니다. 케이블의 색상이 센서비트 보드의 핀 색상과 같은지 확인하고 충돌 센서를 Pin 0에 연결한후 LED모듈을 Pin 8에 연결해주세요.  
 
 ![](https://i.imgur.com/LQkLriL.jpg)  
 
