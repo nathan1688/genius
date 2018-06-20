@@ -87,21 +87,21 @@ Or you can download from the page below.
 
 ### Step 4 Using It  
 
-First of all, you will have to attach each prong of the soil moisture sensor to one of your fingers. Personally, I found that using rubber bands was a simple and effective way to do so. You can experiment with different methods, such as using crocodile clips or tape. 
+우선, 토양 수분 센서의 각 센서부를 손가락 중 하나에 부착해야합니다. 개인적으로 고무 밴드를 사용하는 것이 간단하고 효과적인 것 같습니다. 악어 클립이나 테이프 사용과 같은 다른 방법으로 실험 가능합니다.
 
 ![](https://i.imgur.com/QBy1bWj.jpg)  
 
-Now, turn on the device. The device will record the electrical conductivity of your skin under calm circumstances. Then, it will give the average value and its standard deviation.   
+이제 장치를 켜세요. 이 장치는 피부의 전기 전도도를 기록하고, 평균값과 표준 편차를 표시 합니다.
 
 ![](https://i.imgur.com/A5egJ7d.jpg)  
 
-After the initial readings have been made, ask again! If the person has lied, he will become nervous and the device can pick up on that, resulting in a cross being displayed.   
+처음 값이 나온 후에, 다시 한 번 확인해보세요! 그 사람이 거짓말을 했다면, 그는 긴장을 했을 것이고, 그 값이 마이크로비트에 표시 될 것 입니다!
 
 ![](https://i.imgur.com/Uuq4P62.jpg)  
 
 
 ### Step 5 Success!  
 
-Voila! Now you can test lies with this machine easily.  
+이제 여러분은 마이크로비트로 쉽게 거짓말탐지를 할 수 있습니다!
 
 
