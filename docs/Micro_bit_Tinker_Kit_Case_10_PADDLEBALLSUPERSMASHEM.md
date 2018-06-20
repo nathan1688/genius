@@ -1,28 +1,28 @@
 
 ![](https://i.imgur.com/ngNx9A3.jpg)  
 
-Learn to program a simple yet fun game on a 5 by 5 display, using JavaScript! PADDLEBALLSUPERSMASHEM may bear unintentional similarities to other, more graphical, games.  
+JavaScript를 사용하여 5x5 디스플레이에서 간단하지만 재미있는 게임을 만들 수 있습니다!
+(PADDLEBALLSUPERSMASHEM은 다른 그래픽 게임과 유사할 수 있습니다!!)
 
 
 ## Step 0 – Pre Build Overview    
 ---  
 
-In this project, we will create a simple game, in which you bounce a ball against a wall. If you miss, you die. Too bad. For those of you who appreciate a challenge, the game increases in difficulty with each level!  
-
+이 프로젝트에서는 벽에 공을 튀기는 간단한 게임을 제작합니다. 만약 공을 놓치면, 바로 죽는 게임이죠! 
+당신의 도전이 계속 되면, 게임의 난이도는 계속 증가합니다.
 
 ## Goals    
 ---  
 
-- Get to know more about the microbit microcomputer  
-- Learn how to program a simple game  
-- Consider all cases  
+- 마이크로비트 마이크로컴퓨터에 대해 더 자세히 알아보세요.
+- 간단한 게임을 프로그래밍하는 방법을 배워보세요.
 
 
 ## Material    
 ---   
 
-- 1 x [BBC micro:bit](http://www.elecfreaks.com/estore/bbc-micro-bit-board-for-coding-programming.html)  
-- 1 x Micro USB cable  
+- 1 x [마이크로비트](http://www.elecfreaks.com/estore/bbc-micro-bit-board-for-coding-programming.html)  
+- 1 x 마이크로 USB 케이블 
 
 ![](https://i.imgur.com/Im2BXNd.jpg)  
 
@@ -32,37 +32,38 @@ In this project, we will create a simple game, in which you bounce a ball agains
 
 ### Step 1: Components     
 
-First of all, plug the microbit microcomputer into your own computer. No other components are required.  
+우선, 마이크로비트를 컴퓨터와 연결하세요. 다른 구성 요소는 필요하지 않습니다.
 
 ![](https://i.imgur.com/fqrpqTW.jpg)  
 
 
 ### Step 2： Pre-coding    
 
-We will add a package of code to enable us to use our kit components. Click on “Advanced” in the Code Drawer to see more code section and look at the bottom of the Code Drawer for “Add Package”.  
+우리는 키트 구성 요소를 사용할 수 있도록 코드 패키지를 추가 할 것 입니다. 코드 드로어에서 "고급"을 클릭하면, 더 많은 코드 섹션을 볼 수 있으며, "패키지 추가"에 대한 내용을 볼 수 있습니다.
 
 ![](https://i.imgur.com/I2L5019.jpg)  
 
-This will open up a dialog box. Search for "tinker kit" and then click on it to download this package.  
+그러면 대화 상자가 열립니다. "팅커 키트"를 검색한 다음 패키지를 클릭하여 패키지를 다운로드 하세요.
 
 ![](https://i.imgur.com/8a7kDKF.png)  
 
-Note: If you get a warning telling you some packages will be removed because of incompatibility issues, you should either follow the prompts or create a new project in the Projects file menu.  
+참고: 비 호환성 문제로 인하여 일부 패키지가 제거 될 것 이라는 경고 메시지가 표시되면, 프로젝트 파일 메뉴에서 프롬프트를 따르거나 새 프로젝트를 만들어야합니다.
 
 
 ### Step 3: Coding    
 
 ![](https://i.imgur.com/SfkOKmO.png)  
 
-First of all, define your variables! We are going to need many variables to store the location, speed and direction of the ball, the length and position of the paddle, and last but not least, your score!  
+우선, 변수를 정의하세요 ! 우리는 공의 위치, 속도와 방향, 패들의 길이와 위치, 마지막으로 점수를 저장하기 위하여 많은 변수들이 필요합니다.
 
 ![](https://i.imgur.com/oYBRGY9.png)  
 
-Next, we will program the functions that control the paddle. xb represents the position of the first pixel of the paddle from the left, and yb represents the length of the paddle. The left and right functions control xb and shift the paddle, and the board function prints the paddle on the screen.  
+다음으로, 우리는 패들을 제어하는 기능들을 프로그램 할 것 입니다.
+xb는 왼쪽에서부터 패들의 첫번째 픽셀의 위치를 나타내며, yb는 패들의 길이를 나타냅니다. 왼쪽과 오른쪽 기능은 xb를 제어하고 패들을 이동시키고 보드 기능은 패들을 화면에 표시합니다.
 
 ![](https://i.imgur.com/lQ0drJR.png)  
 
-Next, we include the function that controls when the ball moves. At the beginning, the ball moves every second but as you advance, the ball moves at shorter and shorter intervals! How exciting!   
+다음으로, 볼이 움직일 때를 제어하는 함수를 포함합니다. 처음에는 공이 1초마다 움직이지만, 당신이 전진할 때 공은 짧은 간격으로 계속 움직입니다. 매우 흥미진진 하죠!
 
 ![](https://i.imgur.com/c6jUmNb.png)  
 
