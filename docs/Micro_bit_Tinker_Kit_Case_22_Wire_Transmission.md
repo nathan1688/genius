@@ -1,140 +1,128 @@
 ![](https://i.imgur.com/cke0jAl.jpg)
 
-Communicate between two micro:bits using Morse code, fishing line, a servo and a sensor! Why use micro:bit’s radio when this is so much cooler?
+모스 부호, 낚싯줄, 서보 및 센서를 사용하여 두 개의 마이크로 비트를 통신하십시오! 마이크로가 조금 더 차가울 때 라디오를 사용하는 이유는 무엇입니까?
 
 
-## Goals  
+## 목표  
 ---
 
-- Use Python to programme the micro:bit  
-- Use dictionaries to encode and decode Morse code  
-- Move the servo, and detect using the crash sensor  
+- Python을 사용하여 마이크로 비트 프로그래밍
+- 사전을 사용하여 모스 코드를 인코딩 및 해독합니다.
+- 서보를 움직이고 충돌 센서를 사용하여 감지합니다.
 
 ![](https://i.imgur.com/cKy5xLl.gif)  
 
 
-## Materials  
+## 준비물
 ---
 
-- 2 x [BBC Micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)  
-- 2 x [Breakout board](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-breakout-board.html)  
-- 2 x Micro-USB cable  
-- 1 x Servo  
-- 1 x [Crash Sensor](http://www.elecfreaks.com/estore/octopus-crash-sensor-brick.html)  
-- A thin string (e.g. fishing line)  
-- Optional: Cardboard sheet  
+- 2 x [마이크로비트](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+- 2 x [브레이크아웃 보드](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+- 2 x Micro-USB 케이블
+- 1 x 서보모터
+- 1 x [충돌 센서](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)  
+-가는 줄 (예 : 낚시 줄)
+- 옵션 : 골판지 시트
 
-You can’t see the string in this gif, but it’s there between the servo and crash sensor!  
+이 gif에서 문자열을 볼 수는 없지만 서보와 충돌 센서 사이에 문자열이 있습니다!
 
 
-## Why Python?  
+## 왜 파이선인가? 
+---
+- 영어 처럼 읽기 - 파이썬은 읽기 쉬운 언어 중 하나입니다. 환상적인 초보자 용 언어입니다.
+- 다용도 - Python은 정당한 이유로 업계 표준입니다. 많은 것을 할 수 있습니다. 이것이 Google과 YouTube가 백엔드 소프트웨어의 일부로이 언어를 사용하는 이유입니다.
+- 활동적인 커뮤니티 - 파이썬은 초보자에게 가장 인기있는 언어 중 하나입니다. 수많은 리소스가 있으며 코드를 살펴 보는 데 도움이되는 정보가 많습니다. 코드 작성 과정에서 걸림돌이되는 것을 극복하는 데 도움이된다는 것을 알 수 있습니다.
+
+## 파이썬에서 코딩을 시작하려면 어떻게해야합니까?
 ---
 
-- Reads like English – Python is one of the easiest languages to read, which makes it such a fantastic beginner’s language.  
-- Versatile – Python is industry standard for good reason. It can be used to do so much. This is why Google and YouTube utilise the language for part of its back-end software.  
-- Active community – Python is one of the most popular languages for beginners. There are tons of resources and many more than willing to help look over your code, which will prove invaluable to helping you get over stumbling blocks in your coding journey.  
+파이썬에서 코드를 작성하려면 공식 마이크로 : 비트 파이썬 편집기를 사용하십시오. 프로그램을 실행하려면 다운로드 버튼을 클릭하고 .hex 파일을 컴퓨터에 연결된 MICROBIT 드라이브로 끌어다 놓으십시오.
 
-
-## How Do I Start Coding in Python?  
+## 개요
 ---
 
-You can write your code in Python on the official micro:bit Python editor. To run a program, click the download button, and drag the .hex file into the MICROBIT drive connected to your computer.  
+우리는 2 개의 마이크로 비트를 사용할 것입니다. 하나는 모스 부호를 전송하고 하나는 모스 부호를 수신합니다. 데이터의 전송은 문자열의 길이에 걸쳐 수행됩니다. 서보가 문자열 (인코딩 된 입력을 기반으로 함)을 잡아 당길 때 크래시 센서는 당김을 감지하고이를 모스 부호에서 문자로 디코딩합니다. 물론 마이크로의 무선 구성 요소를 통해 데이터를 전송할 수 있습니다
 
-
-## Overview  
----
-
-We’ll be using two micro:bits, one to transmit Morse code and one to receive Morse code. The transmission of data will be done over a length of string. As the servo tugs on the string (based on the encoded input), the crash sensor detects the tugging and decodes it from morse code into letters. Of course, you could transmit data over the radio component of the micro:bit, but where’s the fun in that?  
-
-## Physical Assembly  
----
+## 조립법
 ![](https://i.imgur.com/Jraq386.jpg)  
 
-Attach the servo to the cardboard sheet, and tie the string around the end of the rotor attached to the servo. Tie the other end of the string around the metal flap of the crash sensor. Attach the crash sensor at a distance such that when the servo turns, the string is pulled and the sensor is activated. If you don’t have a cardboard sheet, you could tape everything to a table. For the transmitting micro:bit, attach the servo to pin 0 on the breakout board. For the receiving micro:bit, attach the crash sensor to pin 0 on the breakout board.  
+서보를 골판지 시트에 부착하고 서보에 부착 된 회 전자 끝 부분에 줄을 매십시오. 끈의 다른 쪽 끝을 충돌 센서의 금속 플랩 주변에 묶습니다. 서보가 회전하면 스트링이 당겨지고 센서가 활성화되도록 거리에 충돌 센서를 부착하십시오. 골판지 시트가 없다면 테이블에 모든 것을 붙일 수 있습니다. 전송 마이크로 : 비트의 경우 브레이크 아웃 보드의 핀 0에 서보를 연결하십시오. 수신 마이크로 비트의 경우 브레이크 아웃 보드의 핀 0에 크래시 센서를 연결합니다.
 
-## What’s Morse Code?  
+## 모스 부호 란 무엇입니까?
 
-Morse code is a type of code used to transmit text by a combination of short (“.”, or “dit”) and long (“-“, or “dah”) signals. Every letter of the alphabet and number from 0 to 9 has its own Morse code representation. Letters are separated by pauses.  
-
-
-## Transmitter  
+모스 코드는 짧은 ( "."또는 "dit") 및 긴 ( "-"또는 "dah") 신호의 조합으로 텍스트를 전송하는 데 사용되는 코드 유형입니다. 0에서 9까지의 알파벳과 숫자의 모든 문자는 자체 모스 부호 표현을 가지고 있습니다. 문자는 일시 중지로 구분됩니다.
+## 송신기
 ---
 
-### Step 1: Encoding Text into Morse Code  
+### 1 단계 : 모스 코드에 텍스트 인코딩
 
-Suppose we are given the text “HELLO WORLD”, and would like to convert this into Morse code. First, we need to have a ‘table’ of what each letter’s morse code is, so that we could, for example, find that “E” is “.” and “W” is “.–”.  
- 
-We can use one of Python’s data structures, the dictionary, which allows us to associate keys to values. In this case, the keys should be the letters of the alphabet, and the values should be the Morse code representation of the corresponding letter.  
+텍스트 "HELLO WORLD"가 주어 졌다고 가정하고이를 모스 부호로 변환하려고합니다. 첫째, 우리는 "E"가 "."이고 "W"가 ".-"임을 알 수 있도록 각 편지의 모스 부호가 무엇인지에 대한 '테이블'을 가져야합니다.
+ 
+파이썬의 데이터 구조 중 하나 인 사전을 사용하여 키를 값에 연결할 수 있습니다. 이 경우, 키는 알파벳의 문자이어야하며 값은 해당 문자의 모스 코드 표현이어야합니다.
 
-![](https://i.imgur.com/rRzdgEv.png)  
+(https://i.imgur.com/rRzdgEv.png)
 
-Here is a dictionary that should do the trick:  
+트릭을 수행해야하는 사전은 다음과 같습니다.
 
 
 MORSE_CODE = {'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.' }  
 
+이제 각 편지를 모스 코드로 번역 할 수 있으므로 전체 메시지를 모아서 각 문자 끝에 공백을 추가하여 수신자에게 문자가 전송되었음을 알려야합니다.
 
-Now that we can translate each individual letter into Morse code, we should assemble the entire message, adding a space to the end of each letter to tell the receiver that a letter has been sent.  
+### 2 단계 : 모스 부호 기반 서보 이동
 
-### Step 2: Moving the Servo based on Morse Code  
+메시지를 모스 코드 형식으로 변환 한 후 다음 단계는 인코딩 된 메시지를 기반으로 서보를 이동하는 것입니다. 이 경우 dit는 0.6 초 텀, dah는 1.2 초 텀, space 는 1.6 초 텀을 나타냅니다.
 
-Once we’ve converted our message into the Morse code form, the next step is to move the servo based on the encoded message. In this case, dit will represent a 0.6s tug, dah a 1.2s tug, and a space a 1.6s tug.  
+먼저, 센서를 잡아 당겨 센서를 작동 시키거나 센서를 작동시키지 못하게하는 서보의 정확한 각도를 찾아야합니다. 우리는이 값을 press_angle와 release_angle이라고 부를 것입니다. 이 설정의 경우 해당 값은 150과 60이지만 센서와 서보를 배치 한 방법에 따라 다릅니다.
 
-First, we need to find the correct angles for the servos that will either tug on the sensor to activate it, or release the string to deactivate the sensor. We’ll call these values press_angle and release_angle. For this set-up, their values are 150 and 60, but this will differ based on how you’ve positioned the sensor and servo.  
+서보를 이동하려면 여기에서 얻을 수있는 클래스를 사용해야합니다. 이 클래스를 온라인 편집기에서 사용하려면이 코드를 복사하여 프로그램 시작 부분에 붙여 넣으십시오.
 
-To move the servo, we’ll need to use a class, which can be obtained here. To use this class with the online editor, copy and paste this code at the start of the programme.  
-
-For each character (dit, dah or space), we should tug on the string for the appropriate length of time, and then release the string for a short period of time.  
-
+각 문자 (dit, dah 또는 space)에 대해 적절한 길이의 문자열을 잡아 당긴 다음 짧은 시간 동안 문자열을 해제해야합니다.
 ![](https://i.imgur.com/N863fTN.png)  
 ![](https://i.imgur.com/yAghLJX.jpg)  
-
-
-## Receiver  
+## 수신기
 ---
 
-### Step 1: Translating Sensor Data into Morse Code  
+### 1 단계 : 센서 데이터를 모스 코드로 변환
 
-When the string tugs on the sensor, it will press the flap down, and this can be detected using analog input. Whenever the flap is down, the analog reading of the pin drops below a threshold value. In this case, we’ll use a threshold value of 100.  
+끈이 센서에서 잡아 당기면 플랩을 아래로 내리고 아날로그 입력을 사용하여이를 감지 할 수 있습니다. 플랩이 내려갈 때마다 핀의 아날로그 판독 값이 임계 값 이하로 떨어집니다. 이 경우 임계 값 100을 사용합니다.
 
-While we could use event listeners that trigger events when the flap is pressed, it’ll be easier to perform polling, which means checking the analog reading at a certain interval, in this case 0.1s.  
+플랩을 누르면 이벤트를 트리거하는 이벤트 리스너를 사용할 수는 있지만 폴링을 수행하는 것이 더 쉬울 것입니다. 폴링은 특정 간격 (이 경우 0.1 초)에서 아날로그 판독 값을 확인하는 것을 의미합니다.
 
-If in a cycle, the flap is being held down, we’ll increase the press_length by 100, to keep track of how long the flap has been pressed so far. If the flap is found to be released, we can use press_length to figure out how long the button has been pressed, and use it to determine what character (dit, dah or space) has been transmitted. We’ll add this to the variable cur_letter, which keeps track of the dits and dahs that have been sent over so far.  
+한 싸이클에서 플랩이 눌려 있다면, 우리는 press_length를 100만큼 증가 시켜서 플랩이 얼마나 오래 눌러 졌는지 추적합니다. 플랩이 해제 된 것으로 판명되면 press_length를 사용하여 버튼이 눌린 시간을 파악하고 어떤 문자 (dit, dah 또는 space)를 전송했는지 확인할 수 있습니다. cur_letter 변수에이 값을 추가합니다. cur_letter는 지금까지 전송 된 dits와 dah를 추적합니다.
 
-![](https://i.imgur.com/uCvCiRx.jpg)  
-![](https://i.imgur.com/nXcUFnn.png)  
+! [] (https://i.imgur.com/uCvCiRx.jpg)
+! [] (https://i.imgur.com/nXcUFnn.png)
 
 
-### Step 2: Translating Morse Code into Letters  
+### 2 단계 : 모스 부호를 문자로 번역하기
 
-Every time a space is detected, it should take the characters (dits or dahs) detected so far, and convert that into a letter. We’ll need to use a dictionary again. This time the keys should be the Morse code representation, and the value should be the letter of the alphabet.  
+공백이 감지 될 때마다 지금까지 감지 된 문자 (dits 또는 dah)를 문자로 변환해야합니다. 사전을 다시 사용해야합니다. 이번에는 키가 모스 부호로 표현되어야하며 값은 알파벳의 문자 여야합니다.
 
-Here’s the code for the decoding dictionary:  
-
+다음은 해독 사전에 대한 코드입니다.
 
 MORSE_DECODE = {'.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H', '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P', '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X', '-.--': 'Y', '--..': 'Z', '-----': '0', '.----': '1', '..---': '2', '...--': '3', '....-': '4', '.....': '5', '-....': '6', '--...': '7', '---..': '8', '----.': '9'}
 
 ![](https://i.imgur.com/v3kUjVN.png)  
+이제 문자가 감지 될 때마다 (스페이스 눌러 짐), 우리는 디코딩 사전에서 원본 문자를 얻을 수 있습니다. 그러나 때로는 수신자가 문자열 예인선 시퀀스를 올바르게 감지하지 못할 수 있으므로 시퀀스를 사전에서 찾을 수 없습니다. 사전에서 찾을 수없는 시퀀스를 찾으면 파이썬이 오류를 던지고 프로그램이 실행을 멈 춥니 다.
 
-Now, whenever a letter is detected (a space is pressed), we can look in the decode dictionary to obtain the original letter. However, sometimes the receiver may not correctly detect the sequence of string tugs, and so the sequence cannot be found in the dictionary. If we try to look for a sequence that cannot be found in the dictionary, Python will throw an error and the programme will stop executing.  
-
-Hence, we should first check if the sequence exists in the dictionary’s keys, and if it does not, we’ll set the current character to “?”. Once we have the current character, we can display it on the LEDs, by setting the cur_char variable. At each cycle, we’ll display the character detected.  
+따라서 우리는 먼저 사전의 키에 시퀀스가 ​​있는지 확인해야하며, 그렇지 않으면 현재 문자를 "?"로 설정합니다. 현재 문자가 있으면 cur_char 변수를 설정하여 LED에 표시 할 수 있습니다. 각주기마다 감지 된 문자가 표시됩니다.
 
 
-## Putting it all Together  
+## 함께 모아서
 ---
 
-If the set-up doesn’t work flawlessly at first, that’s fine! Try adjusting the positions and orientations of the servo or sensor, as well as the press and release angles of the servo. Also, you can try adjusting the durations of the tugs.  
-Here is the full code for the [transmitter](https://pastebin.com/Qm7ZjxHJ) and [receiver](https://pastebin.com/JLEkPyYS).  
+처음에 설정이 완벽하게 작동하지 않는다면 괜찮습니다! 서보 또는 센서의 위치와 방향 및 서보의 누름 각도를 조정하십시오. 또한 텀의 지속 시간을 조정할 수도 있습니다.
+[송신기] (https://pastebin.com/Qm7ZjxHJ)와 [수신자] (https://pastebin.com/JLEkPyYS)의 전체 코드는 다음과 같습니다.
 
 
-## Extensions  
+## 확장
 ---
 
-Although this method of data transmission isn’t used for …obvious reasons, many concepts in data transfer are relevant. Try to experiment with the length of string to see how long distance can be reliably transferred, and at what point the “signal” becomes too weak to be detected.  
+이 데이터 전송 방법이 명백한 이유로 사용되지는 않지만 데이터 전송의 많은 개념이 적합합니다. 문자열의 길이를 실험하여 길이가 얼마나 오랫동안 안정적으로 전송되는지 확인하고 "신호"가 너무 약해져서 감지 할 수없는 지점을 확인하십시오.
 
-To boost the “signal”, a third micro:bit can be used as an amplifier that converts sensor signals into new tugs, similar to how signal amplifiers are installed every 20km in underwater fibre-optic cables.  
+"신호"를 높이기 위해 수중 광섬유 케이블에서 20km마다 신호 증폭기가 설치되는 것과 유사하게 센서 신호를 새로운 잡아 당김으로 변환하는 증폭기로 세 번째 마이크로 비트를 사용할 수 있습니다.
 
-Morse code certainly isn’t the most efficient way to transmit data, nor is it the most reliable way. Experiment with different types of encodings (binary + ASCII, Hamming codes, etc.), as well as explore some error-correcting codes to detect and fix any losses/errors in transmission.  
+모스 부호는 확실히 데이터를 전송하는 가장 효율적인 방법이 아니며 가장 신뢰할 수있는 방법이기도합니다. 다양한 유형의 인코딩 (바이너리 + ASCII, 해밍 코드 등)을 실험하고 전송시 손실 / 오류를 감지하고 수정하기위한 오류 수정 코드를 탐색하십시오.
 
 ![](https://i.imgur.com/m3fYEvK.png)  
