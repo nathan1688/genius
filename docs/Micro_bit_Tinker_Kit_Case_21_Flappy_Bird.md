@@ -44,25 +44,21 @@ Raffles Institution의 Cheryl이 제작했습니다.
 ## 파이썬에서 코딩을 시작하려면 어떻게해야합니까?  
 ---  
 
-[공식 마이크로비트 파이썬 에디터](http://www.python.microbit.org/)로 이동을 하거나 [mu](https://codewith.mu/) to write code and send it to your micro:bit. You can also your own text editor (three cheers to Sublime 3 and Atom) but you have to flash it to the micro:bit. This might turn out to be quite troublesome. Alternatively, you can use a [micro:bit simulator](https://create.withcode.uk/), which is really useful to test code out without downloading the .hex file each time, and makes it easier to fix errors.
+[공식 마이크로비트 파이썬 에디터](http://www.python.microbit.org/)로 이동을 하거나 [오프라인 파이썬 편집기](https://codewith.mu/)를 다운로드하여 코드를 작성한 후 마이크로비트로 보내기만 하면 됩니다. 매번 업로드하는 귀찮은 과정을 줄이기 위해 [마이크로비트 시뮬레이터](https://create.withcode.uk/)를 사용할 수도 있습니다.
 
-Once set up, connect your micro:bit to your computer using the micro-USB cable. It should connect to the port at the top of the backside of the micro:bit. Once ready to be flashed, the micro:bit should light up bright yellow. Ignore this step if you’re on the simulator. Otherwise, stop reading and set it up if you haven’t already. Don’t worry, I’ll wait.
+설정이 완료되면 마이크로 USB 케이블을 사용하여 마이크로비트를 컴퓨터에 연결합니다. 
 
-Welcome back. Without feather ado, let’s get started!
-A Bird’s Eye View of What We’re Doing.
+모든 프로그래밍 문제를 해결하는 방법은 그것을 달성 할 수 있는 바이트 크기로 나누는 것입니다. 우리가 무엇을 필요로하는지 보도록하겠습니다. 게임의 데모를 보려면 비디오를 참조하십시오.
+화면이 시작되면 'READY'메시지와 카운트 다운이 표시됩니다.
 
-The key to tackling every programming problem is to break it into bite-sized achievable bits. Let’s look at what we’ll need. Refer to the video to see a demo of the game. As we go through the process, let’s ask what elements are within the game.
-A ‘READY’ message and countdown shows when the screen starts.
+새를 나타내는 좌표를 작성한다.
+버튼 A를 눌러 새를 움직인다.
+새가 통과하는 파이프의 수를 추적해라.
+새가 지나갈 수 있는 벽을 작성한다.
+새가 벽과 충돌하면 게임은 끝난다.
+이 단계를 직접 수행해보세요. 필요한 경우 단계를 더 작은 단계로 세분화합니다.
 
-Create a coordinate to indicate the bird.
-Move the bird around by pressing button A.
-Keep track of the number of pipes the bird passes.
-Create walls for the bird to fly past
-When the bird collides with a wall, the game is over.
-You might already know how to do some of these. Try covering these steps on your own first. If necessary, break the steps down further into smaller steps. There are also game checks which should be the progress you’ve made by that step. Use these to make sure you’re on track.
-
-
-## How to Make    
+## 만든는 방법 
 --- 
 
 ### Step 1 – Hello, World!  
@@ -70,28 +66,26 @@ You might already know how to do some of these. Try covering these steps on your
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-2.gif)
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-3.png)
 
-First step is to import the micro:bit library into Python. Then, let a ‘READY’ message scroll across the screen and initiate countdown that shows when the game starts.
-Line 1: This imports the micro:bit program
-Line 4: This initiates the ‘READY’ message that scrolls across the screen. Double quotation marks indicate a string (in this case ‘READY’)
-Lines 5-10: This flashes each number on the screen for 1 second (or 1000 milliseconds, the measurement involved) by using the sleep() function.
-Line 11: clears the screen for us to draw the bird and walls later on.
+첫번째 단계는 마이크로비트 라이브러리를 파이썬으로 가져오는 것입니다.
+그 다음 화면에서 '준비 완료' 메시지가 나오고 카운트 다운이 시작됩니다.
+- 1행: 마이크로비트 프로그램을 가져옵니다.
+- 4행: '준비 완료' 메시지가 나옵니다. 큰 따옴표는 문자열을 나타냅니다.
+- 5-10행: sleep () 함수를 사용하여 화면의 각 숫자를 1 초 (또는 측정에 관련된 1000 밀리 초) 동안 깜박입니다.
+- 11행: 새와 벽을 그리는 화면을 지웁니다.
 
-Note: It’s always good to add comments to explain your own code for others or yourself to understand when coming back to it. You add a comment with ‘#’. Also space out your code when necessary to indicate different segments that do different things.
-What you’re doing is applying functions to the object display such that the LCD screen lights up.
-In Python, you also have the flexibility of slowing down the scrolling rate of text in line 4. display.scroll(“READY”, delay = 200) scrolls the text twice as fast and display.scroll(“READY”, delay = 800) scrolls the text at half the speed. The standard delay setting is 400. Increasing the value decreases scroll speed and decreasing the value increases scroll speed.
-Congratulations! You finished the pre-game message! Next, we have to actually set up the game for the user to play.
+참고: 다른 사람들을 위해 자신의 코드를 설명하기 위해 코멘트를 추가하는 것이 좋습니다. '#'으로 설명을 추가합니다.
+파이썬에서는 4행 텍스트의 스크롤 속도를 줄일 수 있습니다.
 
 
 ### Step 2 – Fly, Birdie!  
 
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-4.png)
-Next, we have to create the image of the bird. For those who never analysed the game, Flappy Bird only allows the bird to move upwards and downwards, and pushes it at a constant speed towards the walls. Of course, our screen only has 5 rows of LED so it’s quite limited. To make the bird-flapping more realistic, we’ll be splitting these 5 segments into 100 different positions. This gives us more flexibility when adding speed of descent later on. In this case, the top of the screen is position y=0 and the button is position y=99 so there are 100 positions. The start position is y=50.
-Line 13: This sets the start position of the bird right in the middle, as y=0 is the top and y=99 is at the bottom.
-Line 17: This determines the actual position of the bird on screen, since there are 100 positions and 5 LED rows. Hence, you divide the value stored in variable y by 20 so you scale the bird down onto the screen
-Line 18: This displays the bird on the screen using the display.set_pixel function, which has 3 parameters: x, y and brightness. The x-coordinate is 1 so it will appear in the second column. The y-coordinate is presently 2 because we divided 50 by 20 and rounded it down. That’s the third row. (Note: Indexes begin at 0 usually for computer programming, so you have rows 0-4 from above to below and columns 0-4 for left to right.) Brightness can be any integer from 0 to 9, with 9 being the brightest. In this case, 7 will suffice to avoid eye-strain.
-We add a while loop to tell the micro:bit to keep repeating the block of code that is indented. (Python uses indentations to separate code.)
-The sleep code tells the micro:bit to run this loop every 20ms so it makes your game far more manageable and makes sure your CPU doesn’t work too hard and crash the browser, which would otherwise happen.
-Game check: At this point, a welcome message should appear, then disappear for a bird to appear.
+우리는 새의 이미지를 만들어야 합니다. 5X5의 LED를 사용하지만 조금 더 현실적인 움직임을 위해 100개의 위치로 나눌 것입니다. 
+이 경우 화면 상단의 위치는 Y0=0이고 버튼은 y=99이므로 100개의 위치가 있습니다. 시작 위치는 y=50입니다.
+13행: y=0이 상단이고 y=99가 하단에 있기 때문에 중간에 새의 시작 위치를 설정합니다.
+17행: 변수 y에 저장된 값을 20으로 나누어 새 크기를 화면으로 축소합니다.
+18행: x, y및 밝기의 3가지 매개 변수를 가진 display.set_pixel함수를 사용하여 화면에 새가 표시됩니다. x좌표는 1이므로 두번째 열에 표시됩니다. 
+우리는 50을 20으로 나눠서 반올림했기 때문에 현재 y 좌표는 2입니다. (참고:인덱스는 일반적으로 컴퓨터 프로그래밍의 경우 0에서 시작되므로 위에서 아래로 행이 0-4이고 왼쪽에서 오른쪽으로 행이 0-4입니다.) 밝기는 0에서 9 사이의 정수가 될 수 있으며 9가 가장 밝습니다. 이 경우 눈이 피로해지기 때문에 7로 설정합니다. 파이썬은 들여 쓰기를 사용하여 코드를 구분합니다
 
 
 ### Step 3 – Leaving The Nest  
