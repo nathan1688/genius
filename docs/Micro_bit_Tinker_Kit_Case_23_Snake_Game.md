@@ -5,7 +5,7 @@
 ## 목표
 ---
 
-In this step by step guide, we will build a snake game from scratch, handling controls, movement, win and lose conditions, as well as the drawing of the game board.
+단계별 가이드에서는 처음부터 스네이크 게임을 제작하고 컨트롤, 동작을 처리하며 이기거나 지는 모든 동작을 할 예정입니다.
 
 ![](https://i.imgur.com/97tlh6l.gif)
 
