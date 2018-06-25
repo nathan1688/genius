@@ -3,50 +3,48 @@ micro_bit_Tinker_Kit_Case_21_Flappy_Bird.md
 ![](https://i.imgur.com/EWlMcgc.jpg)
 
 
-Take flight and achieve your pipe dreams with your own version of the notoriously challenging Flappy Bird game, using nothing but a micro:bit (no extras needed) and some Python code.
+마이크로비트와 파이썬을 사용하여 악명 높은 버전의 플래피 버드 게임으로 비행기를 타고 파이프의 꿈을 이루세요.
 
-Made by Cheryl from Raffles Institution. Warning: heavy dosage of bird puns included.
+Raffles Institution의 Cheryl이 제작했습니다.
 
 ![](https://i.imgur.com/H6Kz8Ky.gif)
 
 
-## Goals  
+## 목표
 ---
 
-We’re going to create a full-fledged interactive game on your 5x5 LED screen, playable for ages 9 days to 90 years old. In the process, you’ll learn how to:
-First step is to import the micro:bit library into Python. Then, let a ‘READY’ message scroll across the screen and initiate countdown that shows when the game starts.
-- Line 1: This imports the micro:bit program.
-- Line 4: This initiates the ‘READY’ message that scrolls across the screen. Double quotation marks indicate a string (in this case ‘READY’).
-- Lines 5-10: This flashes each number on the screen for 1 second (or 1000 milliseconds, the measurement involved) by using the sleep() function.
-- Line 11: clears the screen for us to draw the bird and walls later on.
+우리는 5x5 LED를 통해 게임을 만들 것 입니다. 이 과정에서 배울 내용은 다음과 같습니다.
+첫번째 단계는 마이크로비트 라이브러리를 파이썬으로 가져오는 것입니다.
+그 다음 화면에서 '준비 완료' 메시지가 나오고 카운트 다운이 시작됩니다.
+- 1행: 마이크로비트 프로그램을 가져옵니다.
+- 4행: '준비 완료' 메시지가 나옵니다. 큰 따옴표는 문자열을 나타냅니다.
+- 5-10행: sleep () 함수를 사용하여 화면의 각 숫자를 1 초 (또는 측정에 관련된 1000 밀리 초) 동안 깜박입니다.
+- 11행: 새와 벽을 그리는 화면을 지웁니다.
 
-**Note:**
-It’s always good to add comments to explain your own code for others or yourself to understand when coming back to it. You add a comment with ‘#’. Also space out your code when necessary to indicate different segments that do different things.
+**참고:**
+다른 사람들을 위해 자신의 코드를 설명하기 위해 코멘트를 추가하는 것이 좋습니다. '#'으로 설명을 추가합니다.
 
 
-## Materials  
+## 준비물 
 ---
 
-- 1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)
-- 1 x Micro USB Cable (Seriously, that’s all you need.)
+- 1 x [BBC 마이크로비트 보드](http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+- 1 x 마이크로 USB 케이블  
 
 
-## Why Python?  
+## 왜 파이썬인가?  
 ---
 
-- Reads like English – Python is one of the easiest languages to read, which makes it such a fantastic beginner’s language.
-
-- Versatile – Python is industry standard for good reason. It can be used to do so much. This is why Google and YouTube utilise the language for part of its back-end software.
-
-- Active community – Python is one of the most popular languages for beginners. There are tons of resources and many more than willing to help look over your code, which will prove invaluable to helping you get over stumbling blocks in your coding journey.
-
-Actual coding looks cooler than block-based drag-drop coding. I know it’s intimidating, but look at these colours! (Demo of Flappy Bird on Sublime Text)
+- 영어 처럼 읽기 - 파이썬은 읽기 쉬운 언어 중 하나입니다. 환상적인 초보자 용 언어입니다.
+- 다용도 - Python은 정당한 이유로 업계 표준입니다. 많은 것을 할 수 있습니다. 이것이 Google과 YouTube가 백엔드 소프트웨어의 일부로이 언어를 사용하는 이유입니다.
+- 활동적인 커뮤니티 - 파이썬은 초보자에게 가장 인기있는 언어 중 하나입니다. 수많은 리소스가 있으며 코드를 살펴 보는 데 도움이되는 정보가 많습니다. 코드 작성 과정에서 걸림돌이되는 것을 극복하는 데 도움이된다는 것을 알 수 있습니다.
 
 
-## How Do I Start Coding in Python?  
+
+## 파이썬에서 코딩을 시작하려면 어떻게해야합니까?  
 ---  
 
-If you’re a fledgling to programming, you probably don’t have Python lying around. Don’t worry! Just go to the [official micro:bit Python editor ](http://www.python.microbit.org/) or download the offline Python editor [mu](https://codewith.mu/) to write code and send it to your micro:bit. You can also your own text editor (three cheers to Sublime 3 and Atom) but you have to flash it to the micro:bit. This might turn out to be quite troublesome. Alternatively, you can use a [micro:bit simulator](https://create.withcode.uk/), which is really useful to test code out without downloading the .hex file each time, and makes it easier to fix errors.
+[공식 마이크로비트 파이썬 에디터](http://www.python.microbit.org/)로 이동을 하거나 [mu](https://codewith.mu/) to write code and send it to your micro:bit. You can also your own text editor (three cheers to Sublime 3 and Atom) but you have to flash it to the micro:bit. This might turn out to be quite troublesome. Alternatively, you can use a [micro:bit simulator](https://create.withcode.uk/), which is really useful to test code out without downloading the .hex file each time, and makes it easier to fix errors.
 
 Once set up, connect your micro:bit to your computer using the micro-USB cable. It should connect to the port at the top of the backside of the micro:bit. Once ready to be flashed, the micro:bit should light up bright yellow. Ignore this step if you’re on the simulator. Otherwise, stop reading and set it up if you haven’t already. Don’t worry, I’ll wait.
 
