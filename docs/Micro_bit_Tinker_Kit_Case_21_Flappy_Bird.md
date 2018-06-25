@@ -84,47 +84,49 @@ Raffles Institution의 Cheryl이 제작했습니다.
 이 경우 화면 상단의 위치는 Y0=0이고 버튼은 y=99이므로 100개의 위치가 있습니다. 시작 위치는 y=50입니다.
 13행: y=0이 상단이고 y=99가 하단에 있기 때문에 중간에 새의 시작 위치를 설정합니다.
 17행: 변수 y에 저장된 값을 20으로 나누어 새 크기를 화면으로 축소합니다.
-18행: x, y및 밝기의 3가지 매개 변수를 가진 display.set_pixel함수를 사용하여 화면에 새가 표시됩니다. x좌표는 1이므로 두번째 열에 표시됩니다. 
-우리는 50을 20으로 나눠서 반올림했기 때문에 현재 y 좌표는 2입니다. (참고:인덱스는 일반적으로 컴퓨터 프로그래밍의 경우 0에서 시작되므로 위에서 아래로 행이 0-4이고 왼쪽에서 오른쪽으로 행이 0-4입니다.) 밝기는 0에서 9 사이의 정수가 될 수 있으며 9가 가장 밝습니다. 이 경우 눈이 피로해지기 때문에 7로 설정합니다. 파이썬은 들여 쓰기를 사용하여 코드를 구분합니다
+18행: x, y및 밝기의 3가지 매개 변수를 가진 display.set_pixel함수를 사용하여 화면에 새가 표시됩니다. 
+x좌표는 1이므로 두번째 열에 표시됩니다. 
+우리는 50을 20으로 나눠서 반올림했기 때문에 현재 y 좌표는 2입니다. 
+(참고:인덱스는 일반적으로 컴퓨터 프로그래밍의 경우 0에서 시작되므로 위에서 아래로 행이 0-4이고 왼쪽에서 오른쪽으로 행이 0-4입니다.)
+밝기는 0에서 9 사이의 정수가 될 수 있으며 9가 가장 밝습니다. 이 경우 눈이 피로해지기 때문에 7로 설정합니다. 
+파이썬은 들여 쓰기를 사용하여 코드를 구분합니다
 
 
 ### Step 3 – Leaving The Nest  
 
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-5.png)
-The previous step only created the bird image, but it still can’t move! This is what we will do in the next step, by simulating realistic gravity.
-Firstly, let’s add a new variable ’speed’ right below the y-coordinate.
-Shift the display.clear() into the while loop such that it no longer just clears the welcome message, but also clears the old position of the bird, as it runs before the new position is set each time
-Lines 25-29: This sets a new y-coordinate of the bird within the borders (max y=99, min y=0), based on the ‘gravity’ acting at that point.
-Why place it all in the while loop? Well, you want this block to continually update the position of the bird every few milliseconds (20 to be exact) so this block will keep repeating itself
-Terminal velocity: to make the motion of the bird more realistic, speed reaches a constant rate of 2, but only after two iterations of the code whereby speed = 0 becomes speed =2. The if function ensures that speed does not increase beyond 2. You can play around with this to vary the speed of bird descent.
+새의 형상을 만들었지만 아직은 움직일 수 없습니다.
+먼저, y 좌표 바로 아래에 새로운 변수 '속도'를 추가해 보겠습니다.
+display.clear ()를 while 루프로 이동하여 환영 메시지를 지우지 않고 새 위치가 매번 설정되기 전에 실행되는 새의 이전 위치를 지웁니다.
+25-29행: '중력'을 기준으로 테두리 안에 새로운 y 좌표를 설정합니다 (최대 y = 99, 최소 y = 0).
+
+while 루프에서 모든 것을 배치해야하는 이유는 무엇인가요? 
+일정 밀리초마다 정확하게 새의 위치를 업데이트하여 블록이 반복될 수 있게 하려는 것 입니다.
 
 
 ### Step 4 – Defying Gravity
 
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-6.png)
 
-Now, we have to get the bird to hop by pressing button A. In this step, we also include a new ‘score’ variable to track the number of walls that the bird flies past. This can be accessed at any point using button B.
-To react to key-pressing of A, run ‘button_a.was_pressed()’ under an if-loop like in line 21. If, during that iteration, the A button was pressed at any time, we bring the bird up, reset the falling rate, then let it accelerate back down to the ground, giving the falling and flapping motion. Change the value of speed on flapping, which is currently -8, to see the visual changes to rate of bird’s descent.
-Add variable ‘score = 0’ to set new variable score to 0, underneath the speed and y variables. As a coding habit, try to set all your variables in one place, above the code that uses it so it’s easier to follow, and actually can be inputted for use.
-Show score when button B is pressed by creating an if loop similar to button A. display.show(score) shows the score at any point in time. We’ll learn to vary and count the score after each wall-passing later.
-Game check: Welcome message appears, disappears, then bird appears that falls down. Press A for it to flap upwards and B to check the score, which should remain at 0 right now.
- 
+이제 우리는 A버튼을 눌러 새가 움직일 수 있게 해야합니다. 이 단계에서는 새가 지나간 벽의 수를 추적하는 새로운 '점수' 변수도 포함시킵니다. 버튼 B를 사용하여 언제든지 액세스 할 수 있습니다.
+A의 키 누르기에 반응하려면 21행처럼 "button_a.was_pressed()"를 "fan_loop"아래에서 실행하세요. 반복하는 동안, A버튼을 누르면 새가 다시 올라오게 되고 하강 속도가 다시 빨라지게 됩니다. 
+변수 '점수=0'을 추가하여 속도 및 y변수 아래에 새 변수 점수를 0으로 설정합니다. 코딩 습관으로 모든 변수를 한 곳에 설정하여 쉽게 따라 할 수 있도록 하는 것이 좋습니다.
+버튼 A와 유사한 루프를 생성하여 버튼 B를 눌렀을 때 점수를 표시합니다. 표시(점수)는 원하는 시점에 점수를 표시합니다.
 
+ 
 ### Step 5 – Pipe Blaster  
 
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-7.png)
 
-We’re going to create our first pipe using a make_pipe function! Then we’ll assign it to variable i, and show pipe within the while loop. I know it’s complicated, but it’ll also be the start of owl/our game finally looking complete!
-Functions are blocks of code that are run conveniently under the function name. By calling a function, we can run the entire block of code within it. This makes it easier to understand what we’re doing at each step. In this case, we’ll name our function make_pipe() which runs code to make a new pipe each time. Let’s break down what each step of the make_pipe() function does
-At line 19, we define the function using def make_pipe(): – the indented blocks beneath make up the function
-At line 20, a custom image is drawn, with the ‘0’ indicating 0 brightness for each coordinate, starting from row 1, column 1 then row 1, column 2 and so on. This basically lights up the LED of the entire last column with the brightness of 4. (You can tweak this as you like. I personally like for the bird to be clearly brighter than the wall so you can identify its position.)
-At line 21, we use the random library to call a random number between and inclusive of 0 and 3. This means 0, 1, 2 and 3. We don’t use 4 because we blast two holes, one which is gap+1. If 4 was selected, we would blast a hole in column 4, row 5. But there’s no row 5 so an error is returned.
-We have to return this image so that it can be called as the value of i later on.
-The hole is blasted by setting the LED brightness for the gap position and the LED above it to be zero. Pretty cool, eh? That’s your first function. Good job!
-Note: always define the functions above the actual code, beneath the variables. This is just a convention, but it makes your program readable!
-Let’s assign variable i to the function, as per line 27. Now, in the while loop, if we add a display.show(i), the display now shows the pipe (and hole) i.
-Persevere! We’re nearly there. Now, we just have to get the wall moving, count scores and react to bird-wall collisions.
-Game check: Same as step 4, and now there’s an unmoving wall with holes! Check earlier steps if something has gone afowl.
+make_pipe함수를 사용하여 첫번째 파이프를 만들 예정입니다! 그런 다음 변수 i에 할당하고 파이프를 표시합니다.
+함수를 호출하면 코드 내의 전체 블록을 실행할 수 있습니다. 이를 통해 각 단계에서 하는 일을 더 쉽게 이해할 수 있습니다.
+새 파이프를 만들기 위해 코드를 실행하는 함수 make_pipe()의 이름을 지정합니다. make_pipe()함수의 각 단계에서 수행되는 작업을 설명합니다.
+19행에서는 defmake_pipe()를 사용하여 함수를 정의합니다.
+20행에서는 각 좌표에 대해 밝기를 나타내는 '0'과 1행, 1열, 1열, 2열 등의 사용자 정의 이미지가 그려집니다. 
+이렇게 하면 밝기가 4인 마지막 열의 LED가 켜집니다.
+21 행에서 임의의 라이브러리를 사용하여 0과 3 사이의 난수를 호출합니다. 두 개의 홀을 폭발시키기 때문에 4를 사용하지 않습니다. 
+즉 gap+1을 날렸기 때문이다. 만약 4가 선택된다면, 4열 5행에 구멍이 생길 것입니다. 그러나 5행이 없으므로 오류가 반환됩니다.
+함수에 변수 i를 27행에 따라 할당해 봅시다. 이제 그 사이에 디스플레이를 추가하면 디스플레이에 파이프i가 표시됩니다.
 
 
 ### Step 6 – Frame Rate  
