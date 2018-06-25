@@ -20,37 +20,33 @@ In this step by step guide, we will build a snake game from scratch, handling co
 ## Why Python?
 ---
 
-- 영어를 읽는 것처럼 – Python은 읽기 쉬운 언어 중 하나로,아주 훌륭한 초급 언어입니다.
+- 영어 처럼 읽기 - 파이썬은 읽기 쉬운 언어 중 하나입니다. 환상적인 초보자 용 언어입니다.
+- 다용도 - Python은 정당한 이유로 업계 표준입니다. 많은 것을 할 수 있습니다. 이것이 Google과 YouTube가 백엔드 소프트웨어의 일부로이 언어를 사용하는 이유입니다.
+- 활동적인 커뮤니티 - 파이썬은 초보자에게 가장 인기있는 언어 중 하나입니다. 수많은 리소스가 있으며 코드를 살펴 보는 데 도움이되는 정보가 많습니다. 코드 작성 과정에서 걸림돌이되는 것을 극복하는 데 도움이된다는 것을 알 수 있습니다.
 
-
-- 다용도 – Python is industry standard for good reason. It can be used to do so much. This is why Google and YouTube utilise the language for part of its back-end software.
-
-
-- Active community – Python is one of the most popular languages for beginners. There are tons of resources and many more than willing to help look over your code, which will prove invaluable to helping you get over stumbling blocks in your coding journey.
-
-
-- Actual coding looks cooler than block-based drag-drop coding. I know it’s intimidating, but look at these colours!
 
 ## How Do I Start Coding in Python?
 ---
 
-If you’re a fledgling to programming, you probably don’t have Python lying around. Don’t worry! Just go to the [official micro:bit Python editor](http://www.python.microbit.org/) or download the offline Python editor [mu](https://codewith.mu/) to write code and send it to your micro:bit. You can also your own text editor (three cheers to Sublime 3 and Atom) but you have to flash it to the micro:bit. This might turn out to be quite troublesome. Alternatively, you can use a [micro:bit simulator](https://create.withcode.uk/), which is really useful to test code out without downloading the .hex file each time, and makes it easier to fix errors.
+[공식 마이크로비트 파이썬 에디터](http://www.python.microbit.org/)로 이동을 하거나 [오프라인 파이썬 편집기](https://codewith.mu/)를 다운로드하여 코드를 작성한 후 마이크로비트로 보내기만 하면 됩니다. 매번 업로드하는 귀찮은 과정을 줄이기 위해 [마이크로비트 시뮬레이터](https://create.withcode.uk/)를 사용할 수도 있습니다.
 
-Once set up, connect your micro:bit to your computer using the micro-USB cable. It should connect to the port at the top of the backside of the micro:bit. Once ready to be flashed, the micro:bit should light up bright yellow. Ignore this step if you’re on the simulator. Otherwise, stop reading and set it up if you haven’t already.
+설정이 완료되면 마이크로 USB 케이블을 사용하여 마이크로비트를 컴퓨터에 연결합니다. 
+
 
 ## Six Simple Steps to SNAKE!
 ---
 
-By breaking the code into separate portions, each aspect of the game can be tested individually to ensure that they are all functioning as they should.
 
-- Import libraries
-- Initialize variables
-- Create the main loop
-- Display snake and food
-- Move snake every frame
-- Set win and game over conditions
+코드를 별도의 부분으로 나누면 게임의 각 측면을 개별적으로 테스트하여 모든 기능이 제대로 작동하는지 확인할 수 있습니다.
 
-By checking the code constantly, we can be sure that what has been written so far is correct.
+- 라이브러리 가져 오기
+- 변수 초기화
+- 메인 루프 생성
+- 뱀과 음식 표시
+- 매 프레임마다 뱀을 움직입니다.
+- 조건에 따라 승리와 게임 설정
+
+코드를 계속 확인함으로써 지금까지 작성된 내용이 올바른지 확인할 수 있습니다.
 
 
 ## How to Make  
@@ -58,72 +54,73 @@ By checking the code constantly, we can be sure that what has been written so fa
 
 ### Step 1 – Import  
 
-All necessary libraries for the project.
+프로젝트에 필요한 모든 라이브러리.
 
-Since the project is a fairly simple one, we just need the default micro:bit library and this nifty function called randint that produces the random numbers we need.
+프로젝트는 매우 간단하기 때문에 기본 micro : bit 라이브러리와 우리가 필요로하는 난수를 생성하는 randint라는 라이브러리가 필욯바니다.
 
 ![](https://i.imgur.com/K6mVRAt.png)
 
 
 ### Step 2 – Initialize  
 
-All the variables we will need later.
+우리가 나중에 필요한 모든 변수들.
 
-A point on the board is represented by a list [x, y] with x representing the column and y representing the row. The snake is a list of these points (yes, a list of lists!) as it contains more than one point. It starts as a single pixel at the top left of the screen, denoted by [0,0]. After which, more points will get appended to the list. The food is a single pixel positioned randomly somewhere else (not in the same row or column).
+보드의 한점은[x, y]목록으로 표시되며, x는 열을 나타내고 y는 행을 나타냅니다.
+화면 왼쪽 상단에[0,0]으로 표시된 단일 픽셀로 시작합니다. 그런 다음 더 많은 점이 리스트에 추가됩니다.
+음식은 임의의 다른 곳에 배치 된 단일 픽셀입니다 (동일한 행 또는 열에 있지 않음).
 
-Each direction is represented by a list containing an increase/decrease in the column, or increase/decrease in the row (In essence, a vector). For example, right is represented by [1, 0] – an increase in the column by one, and no increase in the row. The snake is moving right by default, which is the first option in the list of directions. For the snake to turn leftwards, we simply go to the next direction in the list (right -> up -> left -> down -> right). For the snake to turn rightwards, we go to the previous direction in the list.
+각 방향은 열의 증분/증분 또는 행의 증분/증분(본질적으로 벡터)을 포함하는 리스트로 표현됩니다. 예를 들어, 오른쪽은[1,0]로 표시됩니다. 즉, 열이 하나씩 증가하지만 행은 증가하지 않습니다. 
 
 ![](https://i.imgur.com/NKceck9.png)
 
 
 ### Step 3 – Create  
 
-The main loop.
+메인 루프
 
-The code within the loop repeats an infinite number of times, or until the loop is broken. Remember, this is Python, so all subsequent lines will have to be indented.
+루프 내의 코드는 무한 반복되거나 루프가 끊어 질 때까지 반복됩니다.
 
 ![](https://i.imgur.com/h67k1b0.png)
 
 
 ### Step 4 – Display    
 
-The snake and the food.
+뱀과 음식
 
-First, we clear the display of anything that was previously drawn, so that we start with a blank slate. Next, we draw the food particle as a bright light on the display. After that, we loop through the snake list and draw every single pixel at medium brightness. Then, the program pauses for 0.8 second before redrawing the screen again.
+먼저, 이전에 그려진 내용을 모두 지우고 빈 슬레이트로 시작합니다.
+다음으로, 음식 입자를 밝은 빛으로 화면에 그립니다. 그런 다음 뱀 목록을 반복하고 모든 단일 픽셀을 중간 밝기로 그립니다. 그런 다음 화면을 다시 그리기 전에 0.8 초 동안 프로그램이 일시 중지됩니다.
 
 ![](https://i.imgur.com/LFOxrrV.png)
 
-Run the code!
-It is important to constantly check that everything is as it should be. At this point, there should be two pixels on the board lighting up on the board. Press the reset button and the food particle will move to a different location.
+코드를 실행하세요!
+모든 것이 정상적으로 돌아가고 있는지 지속적으로 확인하는 것이 중요합니다. 이 시점에서 보드에 두 개의 픽셀이 켜져 있어야합니다. 재설정 버튼을 누르면 식품 입자가 다른 위치로 이동합니다.
 
 ![](https://i.imgur.com/scaxgXR.gif)
 
 
 ### Step 5 – Move    
 
-The snake and figure out what happens next.
+뱀은 다음에 일어날 일을 파악합니다. 
 
 ![](https://i.imgur.com/Md7Cw2s.png)
 
-The whole code should be placed on top of the previous display code. (See completed code for reference). The first line determines the next pixel the snake will move to. Based on the current location of the head of the snake and adding the direction (in terms of row and column), we can find the next pixel. By obtaining the modulo 5, we can wrap the snake around the edge of the board.
+전체 코드는 이전 표시 코드의 맨 위에 배치해야 합니다. 첫번째 줄은 뱀이 움직일 다음 픽셀을 결정합니다. 뱀 머리의 현재 위치와 방향(행과 열의 관점)을 추가하면 다음 픽셀을 찾을 수 있습니다. "5"를 얻음으로써 우리는 보드의 가장자리에 뱀을 감쌀 수 있습니다.
 
-What happens if this next block is already occupied by the body of the snake? In this case, a collision happens and the game ends. Note that break stops the while: True loop from running.
+이 다음 블록이 이미 뱀의 몸으로 가득 차 있다면 어떻게 될까요? 이 경우 충돌이 발생하고 게임이 종료됩니다. Break는 while 루프를 멈추게합니다.
 
-The next block is now made the new head of the snake. Next, we check if a piece of food has been eaten. If so, then a new piece of food should be generated. If not, the tail of the snake should removed so that the snake is moving, not simply growing longer.
-
-Run the code!
-Become infuriated as you realize that there is no way to win the game.
+다음 블록은 이제 뱀의 새로운 머리가 되었습니다. 그리고 우리는 음식 조각을 먹었는지 확인합니다. 먹었다면 새로운 음식을 만들어야 하고 그렇지 않다면 뱀의 꼬리가 제거되어 뱀이 단순히 길게 자라지 않고 움직이도록 해야합니다.
 
 ![](https://i.imgur.com/QB2mtTE.gif)
 
 ### Step 6 – Win the game!  
 
-This code should be placed on top of the display code, but below the movement code. (See completed code for reference). What it does it continually check if the snake contains twenty five pixels, which is the entire board. If that is the case, the player wins!
+이 코드는 표시 코드의 맨 위에 있지만 이동 코드 아래에 배치해야합니다.
+그것이 뱀이 전체 보드 인 25 개의 픽셀을 포함하고 있는지 계속해서 확인합니다. 포함하고 있다면 플레이어가 승리합니다!
 
 ![](https://i.imgur.com/HT3NoFN.png)
 
 ### Congratulations!  
 
-Enjoy your fully functional snake game.
+완벽한 기능을 깆츤 뱀 게임을 즐기세요.
 
 ![](https://i.imgur.com/4KFsrSE.gif)
