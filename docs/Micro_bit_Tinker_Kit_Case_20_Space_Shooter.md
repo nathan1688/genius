@@ -1,5 +1,6 @@
 ![](https://i.imgur.com/beCyIpm.png)
 
+당신은 복잡한 화려하고 현대적인 게임에 질 렸니? 4K 해상도가 아닌 5x5 해상도로 게임을 즐기십니까? Space Shooter로 약간의 아케이드 게임을 즐기십시오! 이 자습서는 JavaScript로 작성되었습니다. 타자! 많은 타이핑!
 Are you tired of complicated flashy modern games? Prefer to play your games on a 5 x 5 resolution rather than a 4K resolution? Have some arcade fun on your micro:bit with Space Shooter! This tutorial is in JavaScript. Typing! Many typing!  
 
 
