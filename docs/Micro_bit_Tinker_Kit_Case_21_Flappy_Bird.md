@@ -133,41 +133,37 @@ make_pipe함수를 사용하여 첫번째 파이프를 만들 예정입니다! �
 
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-8.png)
 
-This step is where we set up the game constants. Here, the frame variable starts at 0, then increases by 1 every 20ms so it takes 400ms or 0.4s for the frames variable to increase by 20. Remember this, it’ll be easier for the incoming math. These constants aren’t used until Step 7, but let’s set them up first.
-Line 15 just indicates the time taken (in ms) for frame to increase by 1, which is added as part of the while loop in line 37 (frame += 1). You can change the sleep(20) at the bottom of the code to sleep(DELAY) so it corresponds.
-Line 16 sets the time taken for the wall to shift by 1 column. This is currently 0.4s or 20 frames.
-Line 17 sets the time between the occurrence of another wall. This is currently 2.0s or 100 frames.
-Line 18 sets the time between the score increasing. This should always be equivalent to the FRAMES_PER_NEW_WALL value so that each wall you pass is equivalent to one additional score.
-To make the game harder, you would adjust these game constants, perhaps reducing the distance between each new wall for more walls (but change FRAMES_PER_SCORE to correspond to it). The game is currently set for one wall on the screen at any time, but you can definitely make it more chaotic by playing around with the values.
-Note: The game constants are in uppercase, differentiating them from the other variables used. These are just [standard rules](https://www.python.org/dev/peps/pep-0008/) for Python programming. It’ll still work without following it, but your code should follow conventions to be readable.
+이 단계에서는 게임 상수를 설정합니다. 여기서 프레임 변수는 0에서 시작한 다음 20ms마다 1씩 증가하므로 프레임 변수가 20배 증가하는 데 400ms가 걸립니다.
+15행은 프레임이 1씩 증가하는 데 걸리는 시간(ms)을 나타내며, 이 시간은 37행(프레임+=1)의 일부로 추가됩니다. 
+16행은 벽이 1 열 이동하는 데 걸리는 시간을 설정합니다. 현재 0.4 초 또는 20 프레임입니다.
+17행은 다른 벽이 나타나는 시간을 설정합니다. 현재 2.0초 또는 100 프레임입니다.
+18행은 스코어가 증가하는 시간을 설정합니다. 이 값은 항상 FRAMES_PER_NEW_WALL 값과 동일해야합니다. 게임을 더 어렵게 만들려면이 게임 상수를 조정하여 새 벽 사이의 거리를 줄이면 됩니다. (FRAMES_PER_SCORE를 해당 벽에 맞게 변경)
 
 
 ### Step 7 – Pipe Dreams  
 
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-9.png)
-Here, we will compare the frame value with game constants to move the wall left, create a new wall and increase the score. This is all within the while loop so it’s checked every 20ms. Ready? Let’s go.
-At this step, we’ll use the modulo sign (%). This provides the remainder when a number is divided by another number. So 4 % 2 returns 0 but 4 % 3 returns 3. Here, we’ll use it to check that the frame variable is equal to any of the game constants.
-Moving wall left: Look at lines 65-67. This means the wall shifts when the frame is equal to 20, 40, 60… since they’re divisible by FRAMES_PER_WALL_SHIFT value of 20. You can vary this to make the walls move faster and increase the difficulty. Currently, the walls move every 0.4s.
-Creating new wall: Look at lines 69-71. Every 100 frames, or 2 seconds, a new pipe is made by calling the make_pipe() function for i. This is the constant used to create and move the wall.
-Increasing the score: look at lines 73-75. This means that a point is added when the bird travels for 2 seconds, or 1 wall. This value corresponds with the distance between walls so each wall passed is one point.
-Game check: The game should be almost fully playable, with the welcome message, then the bird moving by pressing button A. You can see score with button B. There’s gravity acting on the bird so it falls down over time. Then the walls created randomly move right past it. Wow, you’re nearly done! Now, we just have to react to pipe collisions, ending the game and revealing the score when the bird collides with any pipe.
+
+여기서는 프레임 값을 게임 상수와 비교하여 벽을 왼쪽으로 이동하고 새 벽을 작성한 다음 점수를 높이겠습니다. 이것은 while 루프 안에 모두 있으므로 20ms마다 점검됩니다. 이 단계에서는 모듈로 기호 (%)를 사용합니다. 이것은 숫자가 다른 숫자로 나뉠 때 나머지를 제공합니다. 따라서 4 % 2는 0을 반환하지만 4 % 3은 3을 반환합니다. 여기서는 프레임 변수가 게임 상수 중 하나와 같은지 확인하는 데 사용합니다.
+FRAMES_PER_WALL_SHIFT값 20으로 구분할 수 있으므로 프레임이 20,40,60일 때 벽이 바뀝니다. 벽을 더 빨리 움직이고 난이도를 높이기 위해 이 옵션을 변경할 수 있습니다. 
+새로운 벽을 만드는 것: 69-71행을 참고. 100 프레임마다 또는 2 초마다 i에 대해 make_pipe () 함수를 호출하여 새 파이프를 만듭니다. 벽을 만들고 이동하는 데 사용되는 상수입니다.
 
 
 ### Step 8 – Collision Course  
 
 ![](http://www.elecfreaks.com/estore/download/flappy-bird-10.png)
 
-Phew, you made it to the last step! Ready to wing it? Now, we just need to add a collision reaction. This uses a get_pixel function that returns the LED brightness value at that position. ‘!=‘, the NOT function is also used. Let’s explain how it’s used below.
-Add this collision checking code to the while loop, between the bird-drawing and wall-shifting. This means it checks for collision before new walls are created so there’s no extra scores by error.
-As shown in line 66, we use an if loop. ‘i.get_pixel(1, led_y) != 0 checks if there is a pipe in the position of column 1 (where the bird is), specifically at led_y, the displayed position of the bird. If there is a pipe pixel in the same position as the bird’s coordinates, the i.get_pixel(1, led_y) returns 4, the brightness of the wall. This is NOT 0 so the function beneath, the collision checker, runs
-Line 67-68 display the in-built sad face image for 0.5s. You can change how long this lingers, and to whatever other image you like. Python has a lot of images you can input. You can find the entire list [here](http://microbit-micropython.readthedocs.io/en/latest/tutorials/images.html).
-Line 69 displays the score as a string, behind “Score”.
-Line 70 ends the while loop so the game ends. This means that it’s ‘game over’.
+이제 충돌 반응을 추가하기 만하면됩니다. 이 위치에서 LED 밝기 값을 반환하는 get_pixel 함수를 사용합니다. '! ='이면 NOT 함수도 사용됩니다. 아래에서 어떻게 사용되는지 설명하겠습니다.
+이 충돌 체크 코드를 bird-drawing과 wall-shifting 사이의 while 루프에 추가해주세요.
+i.set_pixel(1, led_y)!=0은 1열(새가 있는 곳)의 위치에 파이프가 있는지 확인합니다. 
+새의 좌표와 동일한 위치에 파이프 픽셀이 있는 경우, i.get_pixel(1, led_y)은 벽의 밝기인 4를 반환합니다. 이 값은 0이 아니므로 아래의 기능, 충돌 검사기가 실행됩니다.
+67-68행은 0.5 초 동안 내장 된 슬픈 얼굴 이미지를 표시합니다. 이 시간이 오래 유지되도록 변경할 수 있으며 원하는 다른 이미지를 변경할 수 있습니다. 파이썬에는 사용자가 입력 할 수있는 많은 이미지가 있습니다. [목록](http://microbit-micropython.readthedocs.io/en/latest/tutorials/images.html)에서 찾을 수 있습니다.
+69행은 점수를 문자열로 표시하고 "점수"뒤에 표시합니다.
+70 번째 줄은 while 루프를 종료하므로 게임이 종료됩니다.
 
 
 ### Start Game!  
 
-And… that’s it! You’re done. Your game should be able to run and end, revealing the score at the end. It’s now a full-fledged frustratingly simple yet challenging game. Pat yourself on the back! That was a lot of hefty coding and new concepts. Look through your code, and try and figure out what each line. Add comments to explain it to yourself if necessary. This is a good practice for you to easily read your own code when coming back to it months later.
+게임을 실행하고 종료할 수 있고 마지막에 점수가 표시됩니다. 
+게임 루프를 추가하여 장치를 다시 설정하지 않고 다시 재생할 수 있습니다. 버튼을 누르면 변경할 수 있는 Play_again기능을 True에서 특정 변수로 변경하는 것이 좋습니다. 
 
-Good job! Have fun frustrating your friends with this novel interface for the annoying game. Now, you’re free as a bird to look for other projects, with a better understanding of the Python code.
-Extension: Add a game loop, such that you can play again without resetting the device. I suggest changing the while loop’s requirements from True to a certain variable, a play_again function which can be changed with the press of a button. Look at other Python game loops for inspiration, like a scissors, paper, stone game.
