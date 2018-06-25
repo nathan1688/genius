@@ -71,6 +71,7 @@ This function, unrendership, turns off the LEDs that represents our spaceship. W
 
 This function, rendership, turns on the LEDs that represents our spaceship. After using unrendership, we can update the player’s position then use rendership to change the spaceship’s position.
 
+
 ![](http://www.elecfreaks.com/estore/download/spaceshooter-9.png)
 
 This function, unrendershots, turns off the LEDs that represents the player’s fired shots. Similarly, we will use this function to update the positions of the shots.
