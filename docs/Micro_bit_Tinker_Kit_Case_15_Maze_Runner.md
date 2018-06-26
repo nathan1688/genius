@@ -1,177 +1,170 @@
 ![](https://i.imgur.com/NU4ZMjg.jpg)
 
-Can you make it through all levels?  
+당신의 모든 것을 동원해 이것을 만들 수 있습니까?
 
-## Goals  
+## 목표
 ---
 
-We’re going to create a maze game where you must navigate a series of mazes without running into the walls. You’ll learn how to:  
+우리는 미로 게임을 만들려고 합니다. 미로 게임을 만들면 벽으로 뛰어 들어 가지 않고 일련의 미로를 탐색해야합니다. 다음 방법을 배우게됩니다.
 
-- Use buzzer, ADKeypad and micro:bit board
-- Use if statements to evaluate conditions
-- Use variables to track game states such as player location
-- Customize your game and add your own levels!
+- 버저, ADKeypad 및 마이크로 : 비트 보드 사용
+if 문을 사용하여 조건을 평가합니다.
+- 변수를 사용하여 플레이어 위치와 같은 게임 상태를 추적합니다.
+- 게임을 사용자 정의하고 자신의 레벨을 추가하십시오!
 
 
-## Materials  
+## 재료
 ---
 
-1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)  
-1 x Micro USB cable  
-1 x [Buzzer](https://www.elecfreaks.com/estore/octopus-passive-buzzer-brick-obpb01.html)  
-2 x F-F Jumper Wires  
-1 x [ADKeypad](https://www.elecfreaks.com/estore/octopus-adkeypad.html)  
+1 x [BBC 마이크로 : 비트] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+1 x 마이크로 USB 케이블
+1 x [Buzzer] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+2 x F-F 점퍼 전선
+1 x [ADKeypad] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
 
 ![](https://i.imgur.com/MFban0p.gif)  
 
 
-## How to Make
+## 만드는 방법
 
-### Step 1
+### 1 단계
 
-Plug in Buzzer to Pin0. Connect the positive lead to the yellow signal pin and the negative lead to the black ground pin on the breakout board.
+버저를 Pin0에 연결하십시오. 양극 도선을 노란색 신호 핀에 연결하고 음극 도선을 브레이크 아웃 보드의 검정색 접지 핀에 연결합니다.
 
-Plug in the ADKeypad to Pin1. Match wire colors to pin colors on the breakout board!
+Pin1에 ADKeypad를 연결하십시오. 브레이크 아웃 보드에서 색상을 일치시키기 위해 와이어 색상을 맞추십시오!
 
 ![](https://i.imgur.com/K9JjTzn.jpg)
 
 
-### Step 2
+### 2 단계
 
-How to create a maze game on the micro:bit? We are going to display player’s position, LED walls and the maze paths with LEDs on the micro:bit board.
+마이크로에서 미로 게임을 만드는 방법 : 우리는 마이크로 : 비트 보드에 LED로 플레이어의 위치, LED 벽 및 미로 경로를 표시하려고합니다.
 
-How to keep track of the player’s location on the screen? The 5*5 LED dot matrix on micro:bit can be regarded as a coordinate system. The x coordinate axle starts from 0 on the left to 4 on the right. The y coordinate axle starts from 0 on the top to 4 on the bottom. This means that the upper left LED is x=0, y=0. Likewise, the bottom right LED is x=4, y=4.
+화면에서 플레이어의 위치를 ​​추적하는 방법은 무엇일까요? 마이크로 : 비트의 5 * 5 LED 도트 매트릭스는 좌표 시스템으로 간주 될 수 있습니다. x 좌표축은 왼쪽 0부터 오른쪽 4까지입니다. y 좌표축은 맨 위의 0부터 아래쪽의 4까지 시작합니다. 이것은 왼쪽 상단 LED가 x = 0, y = 0임을 의미합니다. 마찬가지로 오른쪽 하단 LED는 x = 4, y = 4입니다.
 
-To do this, we need to create a few variables. Variables are like buckets that store pieces of information for us. Whenever we want the stored information, we can just look at the variable. We need two variables to keep track of the player’s location. Why two variables? One will keep track of the player’s x position and the other will keep track of the player’s y position. We also need a variable to keep track of the maze level (yes, we can have multiple levels!) and also another variable to keep track of whether the game is active (opposite to game over).
+이렇게하려면 몇 가지 변수를 만들어야합니다. 변수는 우리에게 정보를 저장하는 버킷과 같습니다. 저장된 정보가 필요할 때마다 변수를 볼 수 있습니다. 플레이어의 위치를 ​​추적하려면 두 개의 변수가 필요합니다. 왜 두 변수? 하나는 플레이어의 x 위치를 추적하고 다른 하나는 플레이어의 y 위치를 추적합니다. 우리는 또한 미로 수준 (예, 우리는 여러 단계를 가질 수 있습니다!)을 추적하는 변수와 게임이 활성 상태인지 여부를 추적하는 또 다른 변수가 필요합니다.
 
-So let’s set these up. Inside ‘on start’ event, we (optionally) play a melody and display the name of the game on the micro:bit (MAZE RUNNER!). We also set up the 4 variables mentioned above, using the names: level, playerx, playery, and gameOn.
+그래서 이것을 설정합시다. '시작'이벤트에서 우리는 (선택적으로) 멜로디를 연주하고 마이크로 : 비트 (MAZE RUNNER!)에 게임 이름을 표시합니다. level, playerx, playery, gameOn이라는 이름을 사용하여 위에서 언급 한 4 가지 변수를 설정합니다.
 
-What do we set these variables to? We start at level 1 (of course), and we set gameOn to True because when we power on the micro:bit, we want to start the game right away. We can choose any starting point for our player location, but we’ll need to remember this location later on when we set up our maze level (we don’t want the player to start inside a wall!). In this example, I choose to start the player at x=0 and y=3.
+우리는이 변수들을 어떻게 설정합니까? 우리는 레벨 1에서 시작합니다. 우리가 마이크로 비트의 전원을 켤 때 즉시 게임을 시작하기를 원하기 때문에 gameOn을 True로 설정합니다. 플레이어 위치의 시작 지점을 선택할 수는 있지만 나중에 미로 레벨을 설정할 때이 위치를 기억해야합니다 (플레이어가 벽 안쪽에서 시작하는 것을 원하지 않습니다!). 이 예에서는 x = 0 및 y = 3에서 플레이어를 시작하도록 선택합니다.
 
 ![](https://i.imgur.com/KQSw1s0.png)  
 
+### 3 단계
 
-### Step 3  
+시작 변수를 설정 했으므로 플레이어에게 마이크로 비트 화면을 표시해 봅시다!
 
-Now that we’ve set up our starting variables, let’s get our player to display on the micro:bit screen!
+플레이어의 LED가 깜박 거리면서 식별하기 쉽도록하고 싶습니다. 이를 위해 'plot x y'블록을 'pause'블록과 번갈아 가며 사용합니다. 플레이어가 언제나 깜박 거리기를 바랍니다! 그러나 이것은 즉시 작동하지 않습니다. 6 단계에서 미로 벽을 추가하면 미로 벽을 그릴 때마다 마이크로 비트가 플레이어를 덮어 씁니다. 여기에 포즈 블록을 추가하여 플레이어가 즉시 플롯되지 않도록하여 깜박이는 효과를 만듭니다.
 
-We want the player LED to blink on and off so that it is easy to be identified. To do this, we’ll use the ‘plot x y’ block alternating with the ‘pause’ block inside a forever loop. Remember, we want the player to forever blink on and off! However, this won’t work immediately. In step 6 when we add in the maze walls, the micro:bit will overwrite the player every time it draws the maze walls. By adding a pause block here, we make it so that the player won’t immediately be re-plotted, creating a blinking effect.
+위에서 만든 playerx 및 playery 변수를 사용합니다. 왜? 숫자를 여기에 입력하면 쉽게 플레이어를 움직일 수 없습니다! 변수를 사용하면 playerx와 playery의 값을 변경하여 영원한 루프가 플레이어의 새 위치를 그릴 수 있습니다.
 
-We use the playerx and playery variables that we created above. Why? If we typed in numbers here, we wouldn’t be able to easily make our player move! Using variables allows us to change the values of playerx and playery so that the forever loop will plot the new location of the player.
-
-Remember the pause block is in milliseconds (so 300 ms = .3 seconds)! You can customize the speed at which it flashes by modifying the length of the pause.
+일시 중지 블록이 밀리 초 (300ms = .3 초)임을 기억하십시오! 일시 중지 시간을 수정하여 깜박이는 속도를 사용자 정의 할 수 있습니다.
 
 ![](https://i.imgur.com/gXqB9qe.png)  
 
+### 4 단계
 
-### Step 4  
+우리는 마이크로 플레이어를 보여 주었지만 아직 움직일 수는 없습니다! 플레이어의 움직임을 추가합시다. 우리는 ADKeypad의 버튼 누름을 감지 할 것입니다. 하지만 이렇게하려면 MakeCode에 특별한 패키지를 가져와야합니다.
 
-We’ve displayed the player on the micro:bit, but we can’t move it yet! Let’s add in player movement. We’re going to sense button press on the ADKeypad. But to do so, we need to import a special package into MakeCode.
+'고급'섹션을 펼치고 아래로 스크롤하여 '패키지 추가'를 클릭하십시오.
 
-Expand the ‘Advanced’ section and scroll to the bottom and click on ‘Add Packages’.
+검색 창에 "팅커 키트"를 입력하십시오. "tinkercademy-tinker-kit"라고 표시된 상자를 클릭하십시오.
 
-In the search box, type in "tinker kit". Click on the box labelled "tinkercademy-tinker-kit".
+이제 MakeCode에서 새로운 것을 보게 될 것입니다 - 밝은 녹색 Tinkercademy 카테고리가 추가되었습니다!
 
-Now you’ll see something new in MakeCode – a bright green Tinkercademy category has been added!
-
-Inside this category you’ll find blocks to sense button press on the ADKeypad. Note that importing this package only happens in the current project. So if you start a new project and want to use the category, you’ll need to re-import it.
+이 카테고리 안에 ADKeypad의 버튼 누름을 감지하는 블록이 있습니다. 이 패키지 가져 오기는 현재 프로젝트에서만 발생합니다. 따라서 새 프로젝트를 시작한 후 범주를 사용하려면 다시 가져와야합니다.
 
 ![](https://i.imgur.com/Lrkqlkd.png)  
 
+### 5 단계
 
-### Step 5  
+이제 Tinkercademy 카테고리를 추가 했으므로 ADKeypad를 사용하여 위, 아래, 왼쪽 및 오른쪽으로 이동할 수 있습니다. 이 예에서는 버튼 A를 위로 이동하고, 버튼 C를 아래로 이동하고, D 버튼을 왼쪽으로 이동하고, E 버튼을 오른쪽으로 이동하도록 설정합니다.
 
-Now that we have added Tinkercademy category, we can use the ADKeypad to move up, down, left, and right. In this example, we’ll set button A to move up, button C to move down, button D to move left, and button E to move right.
+이를 위해 우리는 문장을 사용합니다. if 문은 조건이 true인지 테스트합니다. 참이면 if 블록 안에있는 블록을 실행합니다. 영원히 반복문 안에 if 문을 배치하면 조건이 참인지를 영원히 테스트합니다.
 
-To do this, we use if statments. If statements test if a condition is true. If it is true, then they run any blocks inside the if block. When we place an if statement inside a forever loop, we forever test if the condition is true.
+플레이어를 이동하기 위해 단순히 플레이어 x 또는 플레이어 y 변수를 변경합니다. 플레이어 x를 줄이거 나 늘리면 플레이어가 왼쪽 또는 오른쪽으로 이동하게됩니다. 플레이어를 줄이거 나 늘리면 플레이어가 위 또는 아래로 움직입니다. 우리는 이러한 변수를 사용하여 플레이어의 위치를 ​​꾸준히 계획하고 있습니다. 그래서 우리가 그들을 바꿀 때, 그것은 자동으로 플레이어의 위치를 ​​바꿉니다!
 
-To move the player, we simply change the player x or player y variables. Remember, decreasing or increasing playerx will cause the player to move left or right respectively. While decreasing or increasing playery will cause the player to move up or down respectively. We’re constantly plotting the location of the player using these variables. So when we change them, it automatically changes the player’s location!
-
-We need to add a short 300ms pause after each button pressed, otherwise the player would move many spaces every time you pressed a button because the program runs so fast.
-
+각 버튼을 누른 후 짧은 300ms 정지를 추가해야합니다. 그렇지 않으면 프로그램이 너무 빨리 실행되므로 버튼을 누를 때마다 플레이어가 많은 공간을 이동하게됩니다.
 ![](https://i.imgur.com/m8bz9Sn.png)  
 
 
-### Step 6  
+### 6 단계
 
-Now that we can move the player, let’s start creating our maze levels! Every time we start a level, we need to do a few things. 
+이제 플레이어를 움직일 수있게되었으므로 미로 레벨을 만들어 보겠습니다. 우리가 레벨을 시작할 때마다 우리는 몇 가지 일을해야합니다.
 
-First we need to display the maze walls on the micro:bit screen;
-Second, we need to forever check if the player runs into a wall (if they do, it’s gameover!). 
-And third, we need to forever check if the player makes it to the end of the maze level (if they do, let them know they succeeded and move on to the next level!).
+먼저 미로 벽을 마이크로 : 비트 화면에 표시해야합니다.
+둘째, 플레이어가 벽에 부딪쳤을 때 영원히 확인해야합니다 (그렇다면 게임 오버!).
+셋째, 플레이어가 미로 레벨을 끝내는지 여부를 영원히 확인해야합니다 (성공하면 다음 단계로 넘어 갔음을 알립니다).
 
-For each level, we’re going to use a forever loop. Inside the loop, we use an ‘if’ statement to check if the level variable equals 1. This means this code will only ever run if the level variable equals 1.
+각 레벨마다 영원히 반복 할 것입니다. 루프 내에서 'if'문을 사용하여 수준 변수가 1인지 확인합니다. 즉,이 변수는 수준 변수가 1 인 경우에만 실행됩니다.
 
-Inside the if statement, we first display the maze walls. We light up LEDs to serve as maze walls, and leave them turned off to represent the maze path. This can be done using the ‘show leds’ block. One thing to be careful about though: remember above we set the starting position of the player? Make sure starting position of your player is not inside a maze wall! In this example, the starting position of the player is x=0, y=3.
+if 문 내부에는 먼저 미로 벽이 표시됩니다. 우리는 LED를 미로 벽으로 사용하도록 조명하고 미로 경로를 나타 내기 위해 LED를 끈 상태로 둡니다. 이것은 'show leds'블록을 사용하여 수행 할 수 있습니다. 한 가지주의해야 할 사항 : 우리가 플레이어의 시작 위치를 설정하는 것 이상을 기억합니까? 플레이어의 시작 위치가 미로 벽이 아닌지 확인하십시오! 이 예제에서 플레이어의 시작 위치는 x = 0, y = 3입니다.
 
-Next, we need to check if the player ever runs into a wall. How to do this? Once again we’ll use if statments to check if our playerx and playery variables are ever in the same place as a wall. We do this using the coordinate system of the 5x5 LED grid. In this example, there are two sections of walls.
+다음으로, 우리는 플레이어가 벽에 부딪히지 않았는지 확인해야합니다. 이 작업을 수행하는 방법? 다시 한번 우리는 playerx 변수와 playery 변수가 벽과 동일한 위치에 있는지 여부를 확인하기위한 문장을 사용합니다. 우리는 5x5 LED 그리드의 좌표계를 사용하여이를 수행합니다. 이 예에서는 두 개의 벽 섹션이 있습니다.
 
-The first wall exists where both playerx and playeryis less than or equal to 2. We create an if statement with these conditions, inside which we set gameOn to ‘false’ (since if it’s ever ‘true’, it means the player ran into a wall and should get a Game Over).
+첫 번째 벽은 playerx와 playery가 모두 2보다 작거나 같은 곳에 존재합니다.이 조건을 사용하여 if 문을 만듭니다.이 조건에서는 gameOn을 'false'로 설정합니다 ( 'true'인 경우 플레이어가 벽과 게임을해야한다).
 
-The second wall exists where playerx or playery equals 4. We create another if statement with these conditions, and inside we set gameOn to ‘false’ (because once again if it’s ever true, it means the player ran into a wall and game over).
+두 번째 벽은 playerx 또는 playery가 4 인 곳에 존재합니다. 우리는 이러한 조건을 가진 또 다른 if 문을 만들고 gameOn을 'false'로 설정합니다 (왜냐하면 다시 한번 사실이라면 플레이어가 벽을 넘어서 게임을 끝내었기 때문입니다) .
 
-Finally, the last test we need to add is to see if the player makes it successfully through the maze! In this example level, the end of the maze is at x=3, y=0. We create another if statment to check if x=3 and y=0, and inside we do a few things: 
+마지막으로 우리가 추가해야 할 마지막 테스트는 플레이어가 미로를 통해 성공적으로 수행하는지 확인하는 것입니다. 이 예제 레벨에서 미로의 끝은 x = 3, y = 0입니다. x = 3, y = 0인지를 확인하기위한 if 문을 또 하나 만들고 내부에 몇 가지 작업을 수행합니다.
 
-First, we play a success melody in the background; 
-Second, we set the starting position of the player for the next level (in this example, we use the same starting position, but it can be different!). 
-Third, we show a smile face to tell the player they succceeded! 
-And fourth, we change the level variable by 1 (this will cause the next level to display).
+첫째, 우리는 백그라운드에서 성공 멜로디를 연주합니다.
+둘째, 플레이어의 시작 위치를 다음 레벨로 설정합니다 (이 예에서는 동일한 시작 위치를 사용하지만 다른 위치 일 수 있습니다).
+셋째, 우리는 미소 짓는 얼굴을 보여서 그들이 성공한 선수에게 알려줍니다!
+네 번째로, 레벨 변수를 1로 변경합니다 (이것은 다음 레벨을 표시 할 것입니다).
 
 ![](https://i.imgur.com/GKCRdUQ.png)  
 
+### 7 단계
 
-### Step 7  
+레벨을 설정하면 많은 비용이 듭니다! 이제 단일 레벨을 얻었으므로 플레이어가 게임을 끝내면 무언가를 만들어 봅시다. 이것은 벽에 부딪 칠 때마다 발생하며 'gameOn'변수에 의해 추적됩니다.
 
-Setting up a level costs us a lot of work! Now that we have a single level, let’s make something happen when a player gets a game over. This will happen whenever they run into a wall, and it’s tracked by the ‘gameOn’ variable.
+forever 루프 안에서 if 문을 사용하여 'gameOn'변수의 값을 확인합니다. 만약 그것이 '거짓'이라면, 코드를 넘어서서 게임을 실행하기를 원합니다!
 
-Inside a forever loop, we use an if statment to check the value of the ‘gameOn’ variable. If it equals ‘false’, then we want our game over code to run!
-
-In this example, we play a sad melody in the background, reset the ‘level’, unplot the player LED, show an angry face, and finally display a string telling the player they can press B to restart the game.
+이 예에서 우리는 백그라운드에서 슬픈 멜로디를 연주하고, '레벨'을 재설정하고, 플레이어 LED를 끄고, 화난 얼굴을 표시하고, 마지막으로 플레이어에게 B를 눌러 게임을 다시 시작할 수 있음을 알리는 문자열을 표시합니다.
 
 ![](https://i.imgur.com/c2rRjIV.png)  
 
 
-### Step 8  
+### 8 단계
 
-Speaking of pressing B to restart the game, we haven’t yet created the code to do that!
+게임을 다시 시작하기 위해 B를 누르는 코드를 만들지 않았습니다!
 
-Inside a forever loop, we test if button B on the ADKeypad is pressed. If it is, we want to set ‘level’ to 1, reset the player’s starting location by setting the ‘playerx’ and ‘playery’ variables to 0 and 3 respectively, and set the ‘gameOn’ variable back to ‘true’.
+영원한 루프 안에서 ADKeypad의 B 버튼이 눌러 졌는지 테스트합니다. 그렇다면 'level'을 1로 설정하고 'playerx'및 'playery'변수를 각각 0 및 3으로 설정하여 플레이어의 시작 위치를 재설정하고 'gameOn'변수를 'true'로 다시 설정합니다.
 
 ![](https://i.imgur.com/bEAcQNv.png)  
 
 
-### Step 9  
+### 9 단계
 
-Now our game should work as intended! The only thing missed is more levels!
+이제 우리 게임은 의도대로 작동해야합니다! 놓친 것은 더 많은 레벨입니다!
 
-It’s quite easy to add more levels by duplicating our level 1 code from above. The only thing that will change is the maze walls and the coordinates for our if statments (for testing if the player moves into a wall or completes the level).
+위에서 레벨 1 코드를 복사하여 더 많은 레벨을 추가하는 것은 매우 쉽습니다. 변경 될 수있는 유일한 것은 미로 벽과 if 문에 대한 좌표입니다 (플레이어가 벽으로 이동했는지 또는 레벨을 완료했는지 테스트하기 위한 것임).
 
-Tips: 
-sometimes it can be complicated to create if statements to test for every wall. In these cases, try to break down your walls into separate rectangles and create an if statement for each rectangle.
+팁 :
+때로는 모든 벽을 테스트 할 if 문을 만드는 것이 복잡 할 수 있습니다. 이 경우 벽을 개별 직사각형으로 분해하고 각 직사각형에 대해 if 문을 작성하십시오.
 
-One thing to watch out: after the player has completed a level, you have to reset its playerx and playery variables, making sure the position matches your next level. Otherwise it would start inside a wall!
+한 가지 주의해야 할 점은 플레이어가 레벨을 완료 한 후에 playerx 및 playery 변수를 재설정하여 위치가 다음 레벨과 일치하는지 확인해야합니다. 그렇지 않으면 벽 안쪽에서 시작됩니다!
 
 ![](https://i.imgur.com/AuDRgkb.png)  
 ![](https://i.imgur.com/Sf61L7z.png)  
 
+### 10 단계
 
-### Step 10  
-
-Once you have done this, you can optionally create a victory section. In this example, once the player have successfully completed the first 3 levels and level equals 4, we unplot the player by playing a victory melody in the background, and showing a victory message!  
+이 작업을 완료하면 선택적으로 승리 섹션을 만들 수 있습니다. 이 예제에서 플레이어가 처음 3 레벨과 레벨이 4가되면, 백그라운드에서 승리 멜로디를 연주하고 승리 메시지를 표시하여 플레이어를 프로 플롭하지 않게됩니다! 
 
 ![](https://i.imgur.com/urHVo35.png)  
 
-
-If you don't want to type these code by yourself, you can download directly from the link below:
+이 코드를 직접 입력하지 않으려면 아래 링크에서 직접 다운로드 할 수 있습니다.
 
 [https://makecode.microbit.org/_fCqa4399XUpv](https://makecode.microbit.org/_fCqa4399XUpv)
 
-Or you can download from the page below:
+또는 아래 페이지에서 다운로드 할 수 있습니다
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_fCqa4399XUpv" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>
 
 
-## Cool stuff!
 
-Now that you’ve learned how to use the ADKeypad, you can try to control LEDs, servos, and other components! You’ve also learned about if statements which are useful in many micro:bit projects! Try to customize your maze runner game by adding more levels!
+## 쿨!
 
+ADKeypad 사용법을 배웠으므로 LED, 서보 및 기타 구성 요소를 제어 할 수 있습니다! 많은 마이크로 : 비트 프로젝트에서 유용한 if 문에 대해서도 배웠습니다! 레벨을 추가하여 미로 러너 게임을 튜닝하십시오!
