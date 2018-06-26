@@ -2,93 +2,93 @@ micro_bit_Tinker_Kit_Case_12_Remote_Control_Everything.md
 
 ![](https://i.imgur.com/utimqzn.jpg)  
 
-Do you already have a micro:bit project you’d like to control from afar?  
-Partner up with a friend, or grab a spare micro:bit, to make a remote controlled project with 2 micro:bits. (Don’t grab a friend’s micro:bit. Be nice.)  
+리모콘 처럼 제어하려는 마이크로 비트 프로젝트를 구상하고 있습니까?
+친구와 함께 2개를 사거나 스페어 마이크로 : 비트를 포함해서 2 마이크로 비트의 원격 제어 프로젝트를 만듭니다. (단! 친구의 마이크로비트를 뺏지 마세요!)
 
 
-## Goals    
----  
-  
-- Enable remote-controlling for the micro:bit car from this tutorial.  
-- Use a spare micro:bit to make a remote control for an existing project!  
-- Remote control everything!  
+## 목표
+---
+  
+- 이 메뉴얼에서 micro : bit 자동차에 대한 원격 제어를 활성화합니다.
+- 예비 마이크로 : 비트를 사용하여 기존 프로젝트에 대한 원격 제어를 만드십시오!
+- 모든 것을 Remote Control!
 
 
-## Materials      
----    
- 
-- 1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)    
-- 1 x Micro USB cable    
-- 1 x Battery box    
-- 2 x AA batteries    
-- 1 x [micro:bit car](http://www.elecfreaks.com/estore/ring-bit-car-mirco-bit-educational-smart-robot-kit-for-kids.html)    
-OR
-- 1 x a project you’d like to remote control    
+## 재료
+---
+ 
+- 1 x [BBC 마이크로 : 비트] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+- 마이크로 USB 케이블 1 개
+- 1 x 배터리 상자
+- AA 배터리 2 개
+- 1 x [마이크로 : bit car] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+또는
+- 원격 제어하려는 프로젝트 1 개
 
 
-## How to Make    
----  
+## 만드는 방법
+---
 
-### Step 1    
+### 1 단계
 
-Set your radio group in makecode. This ensures your transmitter and receiver are in the same channel.  
-Think about the usage of each button on your remote controller.  
-Radio send a different number with each button press event block by using the blocks shown.  
-You can find these blocks under the Radio drawer.  
-Download this into the micro:bit you’ll use as your remote controller.  
-Now each button on your micro:bit remote controller will send a different command!  
+라디오 그룹을 makecode로 설정하십시오. 이렇게하면 송신기와 수신기가 동일한 채널에 있는지 확인할 수 있습니다.
+리모컨의 각 버튼 사용법을 생각해보십시오.
+라디오는 표시된 블록을 사용하여 각 버튼 누름 이벤트 블록마다 다른 번호를 보냅니다.
+라디오 보관함 아래에서 이러한 블록을 찾을 수 있습니다.
+이것을 마이크로 컨트롤러에 다운로드하면 리모컨으로 사용할 수 있습니다.
+이제 마이크로 : 비트 리모컨의 각 버튼이 다른 명령을 보냅니다!
 
 ![](https://i.imgur.com/7FMhilE.png)    
 
 
-### Step 2      
+### 2 단계
 
-In your micro:bit car project (or the particular project you’re trying to remote control), add the same radio group block to your On Start block.    
- 
-This ensures the project you’re trying to remote control will listen to the right commands!    
+마이크로 : 비트 자동차 프로젝트 (또는 원격 제어하려는 특정 프로젝트)에서 동일한 라디오 그룹 블록을 시작 블록에 추가하십시오.
+ 
+이렇게하면 원격 제어하려는 프로젝트가 올바른 명령을 듣게됩니다!
 
 ![](https://i.imgur.com/2yEuF4F.png)    
 
 
-### Step 3    
+### 3 단계
 
-Remember the numbers sent from our remote controller every time we pressed a button? We’re going to use that to trigger an action.  
-Find the radio received block as shown in the Radio drawer.  
-Use an if-then block to check if the number you received is the number you sent when pressing button A.  
-Take the code that turns your micro:bit car left, and place it within this if-then block.  
-We have also added an led indication pointing left just to show what was supposed to happen.  
-Turn off the left servo afterward by digitally writing the pin to 0.  
+버튼을 누를 때마다 리모콘에서 보낸 숫자를 기억하십니까? 우리는 그것을 사용하여 행동을 촉발시킵니다.
+라디오 받침대에 표시된대로 라디오 수신 블록을 찾습니다.
+if-then 블록을 사용하여받은 번호가 버튼 A를 누를 때 보낸 번호인지 확인하십시오.
+마이크로 : 비트 자동차가 왼쪽으로 바뀌는 코드를 가져 와서이 if-then 블록 안에 넣으십시오.
+우리는 또한 일어날 예정이었던 것을 보여주기 위해 왼쪽을 가리키는 주도 표시를 추가했습니다.
+핀을 0에 디지털로 기록한 후 왼쪽 서보를 끕니다.
+
 
 ![](https://i.imgur.com/c8EQV91.png)    
 
 
-### Step 4    
+### 4 단계
 
-Do the same to the code that turns your micro:bit car to the right!  
-Make sure you turn the right wheel off afterward.  
-You can always choose to leave the wheels on without stop after receiving each command. But you’ll face with a situation that the car keeps spinning in circles.  
-Download this program into your micro:bit car.  
+당신의 마이크로 : 비트 자동차를 오른쪽으로 바꾸는 코드에 똑같이 하십시오!
+나중에 오른쪽 바퀴를 끄십시오.
+각 명령을받은 후에는 항상 바퀴를 멈추지 않고 선택할 수 있습니다. 그러나 자동차가 계속 원형을 그리는 상황에 직면하게됩니다.
+이 프로그램을 마이크로 : 비트 자동차에 다운로드하십시오.
 
 ![](https://i.imgur.com/Z0xJGlt.png)    
 
-If you don't want to type these code by yourself, you can download the whole program from the link below.  
+이 코드를 직접 입력하지 않으려면 아래 링크에서 전체 프로그램을 다운로드 할 수 있습니다. 
 
 **Remote Control:** [https://makecode.microbit.org/_gH73AW4Dy1rP](https://makecode.microbit.org/_gH73AW4Dy1rP)  
 **Receiver:** [https://makecode.microbit.org/_4am87cCWb0e9](https://makecode.microbit.org/_4am87cCWb0e9)  
 
-Or you can download from the page below.      
+또는 아래 페이지에서 다운로드 할 수 있습니다.
 
-**Remote Control:**    
+**리모콘:**
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_TKE3rA7CqL2w" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>    
 
 
-**Receiver:**    
+**리시버:**    
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_4am87cCWb0e9" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>    
 
 
-### Awesome!      
-  
-Now that all your code is snugly tucked into your micro:bits, attach your battery packs and get going! Play around and see what other commands you can send with the A+B button, or try different kinds of inputs instead of buttons. Then remote control all your other micro:bit projects. Woo-hoo! World domination without leaving your seat!   
-
+### 신난다!
+  
+이제 모든 코드가 마이크로비트에 잘 어울립니다. 배터리 팩을 연결하고 이동하십시오! 주변에서 놀고 A + B 버튼으로 보낼 수있는 다른 명령을 보거나 버튼 대신 다른 종류의 입력을 시도하십시오. 그런 다음 모든 다른 micro : bit 프로젝트를 원격 제어하십시오. 자리에 앉은 채로 세계를 지배하세요!
