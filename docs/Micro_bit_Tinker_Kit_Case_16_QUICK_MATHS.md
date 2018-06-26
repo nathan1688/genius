@@ -1,154 +1,149 @@
 ![](https://i.imgur.com/qypElZv.jpg)
 
-QUICK MATHS is a game where its all about testing your mental calculation. Too slow, you lose; too fast, you may make mistakes.
+QUICK MATHS는 암산을 테스트하는 게임입니다. 너무 천천히 하면 실패하고; 너무 빠르면 실수 할 수 있습니다.
 
 
 
-## Step 0: Pre-build Overview     
+## 0 단계 : 사전 빌드 개요
 ---
 
-- Use a Buzzer and OLED with the micro:bit.
-- Use if-else statements to evaluate conditions.
-- Create your own function on MakeCode.
+- 마이크로 : 비트가있는 부저와 OLED를 사용하십시오.
+- 조건을 평가하려면 if-else 문을 사용하십시오.
+- MakeCode에 자신 만의 함수를 만듭니다.
 
 ![](https://i.imgur.com/PBa7qli.jpg)
 
-
-## Materials Required  
+## 필수 자료
 ---
 
-- 1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html "BBC micro:bit")
-- 1 x Micro USB cable
-- 1 x [Buzzer](http://www.elecfreaks.com/estore/octopus-passive-buzzer-brick-obpb01.html)
-- 1 x [Octopus:bit](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-breakout-board.html "Octopus:bit")
-- 1 x [OLED](http://www.elecfreaks.com/estore/iic-oled.html)
+- 1 x [BBC 마이크로 : 비트] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+- 마이크로 USB 케이블 1 개
+- 1 x [Buzzer] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+- 1 x [Octopus : bit] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+- 1 x [OLED] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
 
 
-## How to Make     
+## 만드는 방법
 ---
 
-### Step 1 – Components  
+### 1 단계 - 구성 요소
 
 ![](https://i.imgur.com/3Q95A0p.jpg)
 ![](https://i.imgur.com/E9DHJw6.jpg)
 
-Connect the buzzer to P0.
+P0에 부저를 연결하십시오.
 
-Plug in the OLED as shown in the picture above. You can plug it into any of the three rows.
+위 그림과 같이 OLED를 연결하십시오. 세 행 중 하나에 연결할 수 있습니다.
 
 
-### Step 2 – Pre-coding  
+### 2 단계 - 사전 코딩
 
 ![](https://i.imgur.com/S54AWdC.png)
 
-We’ll need to add a package of code to be able to use our kit components. Click on Advanced in the Code drawer to see more code sections and look at the bottom of the Code Drawer for Add Package.
+키트 구성 요소를 사용하려면 코드 패키지를 추가해야합니다. 코드 창에서 고급을 클릭하면 더 많은 코드 섹션을 볼 수 있으며 패키지 추가를위한 코드 드로어의 하단을 볼 수 있습니다.
 
-This will open up a dialog box. Search for OLED. Click on the search icon or press enter, then select the oled-ssd1306.
+그러면 대화 상자가 열립니다. OLED 검색. 검색 아이콘을 클릭하거나 Enter 키를 누른 다음 oled-ssd1306을 선택하십시오.
 
 
-### Step 3 – Coding Initial Screen  
+### 3 단계 - 코딩 초기 화면
 
 ![](https://i.imgur.com/84GEN3d.png)
 
-From the music section start the power up melody, this is the game’s introduction music.
-After that, create a variable named started and set it to false, as the game has not started.
-Finally, use the blocks under the **Tinkercademy** section to initialise the OLED and display the messages as shown in the picture above.
+음악 섹션에서 시작하여 멜로디를 켜고, 이것은 게임의 소개 음악입니다.
+그 후에 게임이 시작되지 않았으므로 started라는 변수를 만들고 false로 설정하십시오.
+마지막으로 ** Tinkercademy ** 섹션 아래의 블록을 사용하여 OLED를 초기화하고 위의 그림과 같은 메시지를 표시하십시오.
 
-
-### Step 4: Coding Randomiser Function  
+### 4 단계 : Randomizer 코딩 함수
 
 ![](https://i.imgur.com/LDYsmUU.png)
 
-In this step, we will randomise the questions that will be displayed.
-Firstly, create a variable named answer. In this, we will store whether the answer should be true or false. We determine this by using the randomiser block under Math.
+이 단계에서는 표시 될 질문을 무작위로 선택합니다.
+먼저 answer라는 변수를 만듭니다. 여기서 우리는 대답이 참인지 거짓인지를 저장합니다. Math에서 randomizer 블록을 사용하여이를 결정합니다.
 
-Next, we create 3 more variables – i1, i2 and a.
-i1 + i2 = a this is an example of what these variables would be used for.
-We then assign a random value from 1 to 9 to i1 and i2. The value of a would be set later.
+다음으로 우리는 3 개의 변수, 즉 i1, i2 및 a를 작성합니다.
+i1 + i2 = a 이것은 이러한 변수가 사용되는 예입니다.
+그런 다음 i1과 i2에 1에서 9까지 임의의 값을 할당합니다. a의 값은 나중에 설정됩니다.
 
-After this, we create a variable name type, which will be used to store what type of question this is. 
-(0: Addition, 1: Subtraction, 2: Multiplication, 3: Division)
-type would then be given a random number from 0 to 3 using the block under math.
+그런 다음 어떤 유형의 질문을 저장하는 데 사용할 변수 이름 유형을 만듭니다.
+(0 : 가산, 1 : 뺄셈, 2 : 곱셈, 3 : 나눗셈)
+유형은 수학에서 블록을 사용하여 0에서 3까지 임의의 숫자가 부여됩니다.
 
-From here, there is an if-else statement that checks what type of question it is in order to generate an answer.
+여기에서 대답을 생성하기 위해 어떤 유형의 질문인지 확인하는 if-else 문이 있습니다.
 
-For Addition (0), if the answer for this is supposed to be true, we set a to the sum of i1 and i2. However, if this is supposed to be false, we add 1 to correct answer.
-For Subtraction (1), if the answer for this is supposed to be true, we set a to the sum of i1 and i2, afterwards we swap the values of a and i1. However, if this is supposed be false, we add 1 to i1.
-For Multiplication (2), if the answer for this is supposed to be true, we set a to the product of i1 and i2. 
+더하기 (0)의 경우, 이에 대한 답이 참이라고 가정하면 a를 i1과 i2의 합계로 설정합니다. 그러나 이것이 거짓이라고 가정하면 정답에 1을 더합니다.
+빼기 (1)의 경우이 대답이 참이라고 가정하면 a를 i1과 i2의 합계로 설정 한 다음 나중에 a와 i1의 값을 바꿉니다. 그러나 이것이 거짓이라고 가정하면 i1에 1을 더합니다.
+곱셈 (2)의 경우, 이에 대한 답이 참이라고 가정하면 a를 i1과 i2의 곱으로 설정합니다.
 
-However, if this is supposed to be false, we add 1 to correct answer.
-For Division (3), if the answer for this is supposed to be true, we set a to the product of i1 and i2, afterwards we swap the values of a and i1. However, if this is supposed be false, we add 1 to i1.
+그러나 이것이 거짓이라고 가정하면 정답에 1을 더합니다.
+Division (3)의 경우, 이에 대한 답이 참이라고 가정하면 a를 i1과 i2의 곱으로 설정하고, 이후에 a와 i1의 값을 교환합니다. 그러나 이것이 거짓이라고 가정하면 i1에 1을 더합니다.
 
 
-### Step 5: Coding Display Function  
+### 5 단계 : 코딩 표시 함수
 
 ![](https://i.imgur.com/ZzddjR4.png)
 
-In this step, we will create a function that displays the question on the screen.
-First, initialise the OLED as shown in the picture.
-Next, we want to determine what sign to use, so we create a variable named sign.
-Afterwards set the value of sign by using an if-else statement that checks what type of question it is.
-(0: +, 1: -, 2: x, 3: /)
-Now we have what we need to display the equation.
-Under the OLED section, select the show string block and add the variables i1, sign, i2.
-Now that the display function is done, call the function at the end of the randomise function, as you would want the question to be displayed after the values have been randomised.
+이 단계에서는 화면에 질문을 표시하는 함수를 만듭니다.
+먼저, 그림과 같이 OLED를 초기화하십시오.
+다음으로 사용할 기호를 결정하기 위해 sign이라는 변수를 만듭니다.
+그 다음 질문의 유형을 확인하는 if-else 문을 사용하여 부호의 값을 설정하십시오.
+(0 : +, 1 : -, 2 : x, 3 : /)
+이제 방정식을 표시하는 데 필요한 것이 있습니다.
+OLED 섹션 아래에서 쇼 문자열 블록을 선택하고 변수 i1, sign, i2를 추가하십시오.
+이제 display 함수가 완료되었으므로 값이 무작위 화 된 후에 질문을 표시하려면 임의 함수의 끝에서 함수를 호출하십시오.
 
-
-### Step 6: Coding the Start Action   
+### 6 단계 : 시작 액션 코딩
 
 ![](https://i.imgur.com/aBB2MTL.png)
 
-Now that we can randomise the questions, it is time we start the game.
-Firstly, create a start function. In this function, set the start value to be true and call the randomise function. Afterwards, from the game section in **advanced**, add the **set score** block and set the value to 0.
-Now that the function is complete, add the 2 button pressed blocks under the input section for both buttons A and B. In both blocks, create an if-else statement to check if the game has started. If it hasn’t, call function start.
+이제 질문을 무작위로 추출 할 수있게되었으므로 게임을 시작할 때입니다.
+먼저 시작 함수를 만듭니다. 이 함수에서 start 값을 true로 설정하고 임의 함수를 호출하십시오. 그런 다음 ** 고급 ** 게임 섹션에서 ** 점수 설정 ** 블록을 추가하고 값을 0으로 설정하십시오.
+함수가 완료되었으므로 버튼 A와 B의 입력 섹션 아래에있는 2 개의 버튼으로 눌려진 블록을 추가합니다. 두 블록 모두에서 if-else 문을 만들어 게임이 시작되었는지 확인합니다. 그렇지 않으면 function start를 호출하십시오.
 
-
-### Step 7: Coding Check Function  
+### 7 단계 : 코딩 검사 함수
 
 ![](https://i.imgur.com/wc9syCp.png)
 
 ![](https://i.imgur.com/yNpMdBa.png)
 
-Continuing from step 6, now we will be working on the part if the game has started.
-Firstly, create 2 functions – correct and wrong. In the correct function, select the change score block from under the game section and change the score by 1. Next call the randomise function to get the next question and lastly start melody ba ding that repeats once for additional sound effects.
-Moving on to the wrong function, start melody wawawawaa repeating once and show icon X to indicate that the player has chosen the wrong answer. Afterwards, initialise OLED as shown in image.
-Lastly, we want to check the high score. Start off by creating a high score variable. Next create an if-else statement as shown above, in this logic gate we are checking if the score is higher than the player’s high score. If it is, then the high score value will be set to the current score.
-Don't forget to set the start variable to be false when the game has ended.
-Now that we have completed the correct and wrong functions, we need to call them as shown in the image.
+6 단계부터 계속 진행하여 게임이 시작되면 지금부터 작업하겠습니다.
+첫째, 정확하고 잘못된 두 가지 기능을 만듭니다. 올바른 기능에서 게임 섹션 아래에서 점수 변경 블록을 선택하고 점수를 1 씩 변경하십시오. 다음 질문을 얻기 위해 무작위 기능을 호출하고 추가 사운드 효과를 위해 한 번 반복되는 멜로디 시작을 마지막으로 시작하십시오.
+잘못된 기능으로 이동하면 멜로디를 한 번 반복하고 아이콘 X를 표시하여 플레이어가 잘못된 대답을 선택했음을 나타냅니다. 그런 다음 이미지에 표시된대로 OLED를 초기화하십시오.
+마지막으로 높은 점수를 확인하고 싶습니다. 높은 점수 변수를 작성하여 시작하십시오. 다음으로 위와 같이 if-else 문을 작성하십시오.이 논리 게이트에서 점수가 플레이어의 높은 점수보다 높은지 확인합니다. 그렇다면 높은 점수 값이 현재 점수로 설정됩니다.
+게임이 종료되었을 때 시작 변수를 false로 설정하는 것을 잊지 마십시오.
+올바른 기능과 잘못된 기능을 완성 했으므로 이미지에 표시된대로 호출해야합니다.
 
 ![](https://i.imgur.com/MvJMuie.png)
 
+### 보너스 단계 8 : 코딩 타이머
 
-### Bonus step 8: Coding Timer  
-
-Now you have a functioning game. But to make things more exciting, we should add a timer. Before we dive into that, there are a few things we have to do first.
-Firstly, create an end function. Set up in the function accordingly. This may seem familiar as this is the last part of the wrong function. You can replace that portion by calling this function. This function would be called again to prevent reprogramming.
+이제는 게임을 할 수 있습니다. 그러나 일을 더 흥미 진진하게 만들기 위해 타이머를 추가해야합니다. 우리가 그것에 뛰어 들기 전에 먼저해야 할 일이 몇 가지 있습니다.
+첫째, 종료 기능을 만듭니다. 그에 따라 함수에 설정하십시오. 이것은 잘못된 함수의 마지막 부분이기 때문에 익숙한 것처럼 보일 수 있습니다. 이 함수를 호출하여 해당 부분을 바꿀 수 있습니다. 이 함수는 재 프로그래밍을 방지하기 위해 다시 호출됩니다.
 
 ![](https://i.imgur.com/INcOT8m.png)
 
-Next, create a slow function. This would be called if the player does not answer in time. Create the blocks as shown in the image.
+그런 다음 느린 함수를 만듭니다. 플레이어가 제때에 응답하지 않으면이 함수가 호출됩니다. 이미지에 표시된대로 블록을 만듭니다.
 
 ![](https://i.imgur.com/PqeTeSO.png)
 
-Following that, we have to create a new variable called time. Time stores when the player started a specific question. Afterwards, set its value to the running time (ms) block which can be found under the more tab of the input section.
+그런 다음 time이라는 새 변수를 만들어야합니다. 플레이어가 특정 질문을 시작할 때 시간을 저장합니다. 그런 다음 입력 섹션의 more 탭 아래에있는 실행 시간 (ms) 블록으로 값을 설정하십시오.
 
 ![](https://i.imgur.com/EB9eNyZ.png)
 
 ![](https://i.imgur.com/uY3dCHx.png)
 
-Micro:bit does not have a built-in timer, thus we have to design one by using what they offer. Now we know the starting time is when the player started the question, and running time is how long the program has been running. From this, if we subtract them we get how long the player has spent on that question. For this game, we only allow the player to have 2.5s (2500ms) for each question. Hence, they will lose if they are too slow.
+마이크로 : 비트는 내장형 타이머가 없으므로 우리가 제공하는 것을 사용하여 하나를 설계해야합니다. 이제 시작 시간은 플레이어가 질문을 시작한 시간이며, 실행 시간은 프로그램이 실행 된 시간입니다. 이것으로부터 우리가 그들을 빼면 우리는 플레이어가 그 질문에 얼마나 오랫동안 소비했는지를 알 수 있습니다. 이 게임의 경우 플레이어는 각 질문에 대해 2.5 초 (2500ms) 만 허용합니다. 따라서 너무 느리면 잃을 것입니다.
 
 ![](https://i.imgur.com/KKj95t1.png)
 
-Lastly, in the correct function add a block that sets the value of time to current running time. This is to refresh the starting time for a new question.
+마지막으로 올바른 함수에서 시간 값을 현재 실행 시간으로 설정하는 블록을 추가하십시오. 이것은 새로운 질문의 시작 시간을 새로 고치는 것입니다.
 
-That’s it! You’ve officially completed this tutorial.
+이제 끝났습니다! 이 메뉴얼을 공식 완료했습니다.
 
-If you don't want to type these code by yourself, you can directly download the whole program from the link below.
+이 코드를 직접 입력하지 않으려면 아래 링크에서 전체 프로그램을 직접 다운로드 할 수 있습니다.
 
 [https://makecode.microbit.org/_ThdfipEwFbWs](https://makecode.microbit.org/_ThdfipEwFbWs)
 
-Or you can download from the page below.
+또는 아래 페이지에서 다운로드 할 수 있습니다.
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_ThdfipEwFbWs 
 
