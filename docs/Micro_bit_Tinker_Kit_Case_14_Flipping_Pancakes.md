@@ -1,149 +1,150 @@
-Do you have what it takes to flip the perfect pancake?
+잘 구운 팬케이크를 먹기 위해서 마이크로비트가 필요합니다!
 
-## Goals
+## 목표
 ---
 
-We’re going to create a flippy pancake game where you must flip the pancake at the perfect time. Too fast, your pancake will be mushy; too slow, it will be burnt! You’ll learn how to…   
+우리는 완벽한 시간에 팬케이크를 뒤집어 놓아야하는 재미있는 팬케이크 게임을 만들 것입니다. 빨리 뒤집으면 팬케이크는 흐물흐물하게, 늦게 뒤집으면 팬케이크는 타버리는 게임.. 당신이 만들게 될 겁니다 ...
 
-- Use a Buzzer and ADKeypad with the micro:bit.  
-- Use if-else statements to evaluate conditions.  
-- Create your own function on MakeCode.  
-- Customise your game!  
+- 버저와 ADKeypad를 마이크로 비트로 사용하십시오.
+- 조건을 평가하려면 if-else 문을 사용하십시오.
+- MakeCode에 자신 만의 함수를 만듭니다.
+- 게임을 튜닝하십시오!
 
-## Materials
+## 재료
 ---
 
-- 1 x BBC micro:bit  
-- 1 x Micro USB cable  
-- 1 x Buzzer  
-- 2 x F-F Jumper Wires  
-- 1 x ADKeypad  
+- 1 x BBC 마이크로 : 조금
+- 마이크로 USB 케이블 1 개
+- 1 x 부저
+- 2 x F-F 점퍼 전선
+- 1 x ADKeypad
 
 ![](https://i.imgur.com/QXLEvIN.gif)
 
-## How to Make
----  
+## 만드는 방법
+---
 
-### Step 1  
+### 1 단계
 
-Plug in your Buzzer to Pin0. Make sure the positive lead is connected to the yellow signal pin and the negative lead is connected to the black ground pin on the breakout board.  
+버저를 Pin0에 연결하십시오. 포지티브 리드가 노란색 신호 핀에 연결되고 네거티브 리드가 브레이크 아웃 보드의 검은 색 접지 핀에 연결되어 있는지 확인하십시오.
 
-Plug in the ADKeypad to Pin1. Match the colours of the wires to the ones on the breakout board!
+Pin1에 ADKeypad를 연결하십시오. 와이어의 색상을 브레이크 아웃 보드의 색상과 일치 시키십시오!
 
 ![](https://i.imgur.com/B8xs2c5.jpg)
 
 
-### Step 2
+### 2 단계
 
-In Makecode, we’ll track the length of time using two variables. Variables are like buckets that can hold changing values.
+Makecode에서는 두 변수를 사용하여 시간 길이를 추적합니다. 변수는 변화하는 값을 저장할 수 있는 버킷과 같습니다.
 
-Every time we turn on micro:bit, a hidden timer keeps track of how long it has been on. We’re going to use this hidden timer to calculate the start time, end time, and total length of the game.
+우리가 마이크로 비트를 켤 때마다, 숨겨진 타이머가 얼마나 오랫동안 지속되었는지 추적합니다. 이 숨겨진 타이머를 사용하여 게임의 시작 시간, 종료 시간 및 총 길이를 계산합니다.
 
-Create a new variable called startTime (or anything you like, really) in the Variable drawer.
+변수 서랍에 startTime이라는 새로운 변수를 작성하십시오.
 
-When we start the game, we want to set our variable startTime to the running time of the micro:bit.
+게임을 시작할 때 변수 startTime을 마이크로 비트의 실행 시간으로 설정하려고합니다.
 
-We also want to display a flat pancake on the screen with the LEDs.
+또한 LED가있는 평면 팬케이크를 화면에 표시하려고합니다.
 
 ![](https://i.imgur.com/I405Wwf.png)
 
-### Step 3
+### 3 단계
 
-We want to set up the game so that when you press the A button on the ADKeypad, a pancake-flipping animation will be played on the micro:bit.
+우리는 ADKeypad에서 A 버튼을 누르면 팬케이크 플립 애니메이션이 마이크로 비트에서 재생되도록 게임을 설정하려고합니다.
 
-To do this, we need to create a function. A function is a piece of code that performs a specific task every single time it’s called. In this case, our task is to display the pancake-flipping animation.
+이렇게하려면 함수를 만들어야합니다. 함수는 호출 될 때마다 특정 작업을 수행하는 코드 조각입니다. 이 경우 팬케이크 플립 애니메이션을 표시합니다.
 
-To create your own function, click on the Functions category and choose the ‘Make a Function’ button. I named my function ‘flipPancake’.
+자신의 기능을 만들려면 기능 범주를 클릭하고 '기능 만들기'버튼을 선택하십시오. 내 함수 이름을 'flipPancake'라고 명명했습니다.
 
-When you do this, a new block will be added to your screen called ‘function flipPancake.’ This is where we define our function, i.e. what will happen whenever we run the function block!
+이렇게하면 새로운 블록이 'function flipPancake'라는 화면에 추가됩니다. 여기서 함수를 정의합니다. 즉 함수 블록을 실행할 때마다 어떤 일이 발생할까요?
 
-In this case, we’re going to add multiple LED blocks inside our flipPancake function so it appears as if our pancake is being tossed into the air and is wobbling as it falls back down.
+이 경우 flipPancake 함수 안에 여러 개의 LED 블록을 추가하여 팬케이크가 공중에 버려진 것처럼 보이고 다시 내려갈 때 흔들 리게됩니다.
 
-Once you have your function defined, you can run it anytime by using the new ‘call function flipPancake’ block inside the Functions category.
+함수를 정의한 후에는 함수 범주 내에서 새로운 'call function flipPancake'블록을 사용하여 언제든지 실행할 수 있습니다.
 
-Feel free to customise your own pancake-flipping animation. This is just one example!
+자신 만의 팬케이크 넘김 애니메이션을 자유롭게 커스터마이즈 할 수 있습니다. 이것은 단지 하나의 예입니다 당신이 더욱 재밌게 만들 수 있습니다!
 
 ![](https://i.imgur.com/G19eBMP.png)
 
 
-### Step 4
+### 4 단계
 
-Now we’re going to sense button press on the ADKeypad. To do so, we need to import a special package into MakeCode.
+이제 ADKeypad에서 버튼 누르기를 감지 할 것입니다. 그렇게 하기 위해서 우리는 MakeCode에 특별한 패키지를 가져와야 합니다.
 
-Expand the ‘Advanced’ section, scroll to the bottom and click on ‘Add Packages’.
+'고급'섹션을 펼치고 맨 아래로 스크롤 한 다음 '패키지 추가'를 클릭하십시오.
 
-In the search box, type in ‘tinker kit’. Then click on the box labelled ‘tinker kit’.
+검색 창에 'tinker kit'을 입력하십시오. 그런 다음 'tinker kit'상자를 클릭하십시오.
 
-Now you’ll see something new in MakeCode – a bright green Tinkercademy category has been added!
+이제 MakeCode에서 새로운 것을 보게 될 것입니다 - 밝은 녹색 Tinkercademy 카테고리가 추가되었습니다!
 
-Inside this category, you’ll find blocks to sense button press on the ADKeypad. This package importation only happens in current project. So if you start a new project, you’ll need to re-import it.
+이 카테고리에서는 ADKeypad에서 버튼 누름을 감지하는 블록을 찾을 수 있습니다. 이 패키지 가져 오기는 현재 프로젝트에서만 발생합니다. 따라서 새 프로젝트를 시작하면 프로젝트를 다시 가져와야합니다.
 
 ![](https://i.imgur.com/Y9DZFDh.png)
 
 
-### Step 5
+### 5 단계
 
-Now that we can sense button press, let’s create the main code for the game! We need to calculate the time whenever a player presses button A and figure out if the pancake is mushy, perfectly cooked, or burnt.
+이제 버튼 누름을 감지 할 수 있으므로 게임의 주요 코드를 만들어 봅시다! 플레이어가 버튼 A를 누를 때마다 시간을 계산하고 팬케이크가 부드럽고 완벽하게 요리되거나 태워 졌는지 알아 내야합니다.
 
-We start off with a forever loop. Inside the forever loop, we put an if-else statement to test if button A is pressed. If-else statement judges if a condition is true. If it is true, then implement the program; if it is false, then skip it. Because this if-else statement is inside a forever loop, it will forever test to see if button A is pressed.
+우리는 영원히 반복 할 것입니다. forever 루프 안에서 if-else 문을 사용하여 버튼 A가 눌려 졌는지 테스트합니다. If-else 문은 조건이 참인지 판단합니다. 그것이 사실이라면 프로그램을 구현하십시오. false 인 경우 건너 뜁니다. 이 if-else 문은 영원한 루프 안에 있기 때문에 버튼 A가 눌려 졌는지 영원히 테스트합니다.
 
-To do this, we’re going to check the current running time of the micro:bit and subtract the value of our startTime variable. This gives us the total time the current game has been running. We store this in another variable called totalTime (you can create this in the Variables category).
+이를 위해 마이크로 비트의 현재 실행 시간을 확인하고 startTime 변수의 값을 뺍니다. 이렇게하면 현재 게임이 실행 된 총 시간이 표시됩니다. 이것을 totalTime이라는 또 다른 변수에 저장합니다 (변수 카테고리에서 만들 수 있음).
 
-After calculating the totalTime, we call our flipPancake function! This will animate the pancake!
+totalTime을 계산 한 후 우리는 flipPancake 함수를 호출합니다! 이것은 팬케이크를 움직입니다!
 
-Next, we need to to test the totalTime to judge if the pancake is mushy, perfect, or burnt. We use if-else statement again for this. But in this case, we’re going to link the if-else statements together to test multiple conditions back-to-back. When if-else statements are linked together, only one can be run. As soon as the micro:bit finds one that is true, it skips testing all others that are linked. We can add linked if-else statements by clicking on the gear icon on the if-else block and dragging in more if-else blocks.
+다음으로, 우리는 totalTime을 테스트하여 팬케이크가 부드럽고 완벽하고 불에 타는지 판단해야합니다. 이를 위해 if-else 문을 다시 사용합니다. 그러나이 경우 if-else 문을 함께 연결하여 여러 조건을 연속적으로 테스트합니다. if-else 문을 함께 연결하면 하나만 실행할 수 있습니다. 마이크로 비트가 사실을 발견하자마자, 링크 된 다른 모든 테스트를 건너 뜁니다. if-else 블록에서 톱니 바퀴 아이콘을 클릭하고 다른 if-else 블록에서 드래그하여 링크 된 if-else 문을 추가 할 수 있습니다.
 
-In this case, we start by testing if totalTime is less than 7000 (keep in mind this is milliseconds! So 7000 milliseconds = 7 seconds). If totalTime is less than 7000, we determine that the pancake is mushy and display a frowny face and a MUSHY message. If this first condition is true, the micro:bit will skip testing all the following conditions!
+이 경우 totalTime이 7000보다 작은 지 테스트합니다 (밀리 초이므로 7000 밀리 초 = 7 초입니다). totalTime이 7000보다 작 으면 팬케이크가 부드러 우며 부드러운 얼굴과 거친 메시지를 표시합니다. 이 첫 번째 조건이 참이면 마이크로 비트는 다음 조건을 모두 건너 뜁니다!
 
-If totalTime is not less than 7000, we test if totalTime is less than 8000 milliseconds. We know at this point that totalTime is greater than 7000. So if it is also less than 8000, we determine that the pancake is perfect and display a happy face and a PERFECT message.
+totalTime이 7000보다 작지 않으면 totalTime이 8000 밀리 초 미만인지 테스트합니다. 이 시점에서 totalTime은 7000보다 큽니다. 따라서 8000보다 작 으면 팬케이크가 완벽하고 행복한 얼굴과 완료 메시지가 표시됩니다.
 
-Finally, if neither of the previous two conditions are true, then we know that totalTime must be greater than 8000. So we determine that the pancake is overcooked and display an angry face and a BURNT message.
+마지막으로, 이전 두 조건 중 어느 것도 참이 아니면 totalTime은 8000보다 커야합니다. 따라서 팬케이크가 익혔다 고 판단하고 화난 얼굴과 BURNT 메시지를 표시합니다.
 
 ![](https://i.imgur.com/FafT0oa.png)
 ![](https://i.imgur.com/Dd2ypuT.png)
 
+### 6 단계
 
-### Step 6
+이제 우리는 게임을 실행했습니다. 플레이어가 마이크로 비트를 재설정하지 않고 한 번 이상 플레이 할 수 있도록하십시오.
 
-Now that we have the game running. Let’s make it so that players can play more than once without resetting the micro:bit.
+이렇게하려면 ADKeypad에서 B 버튼을 누르면 게임이 재설정됩니다. 다시 한번, 영원히 반복문을 사용하고 if-else 문을 안에 넣어 버튼 B가 눌러 졌는지 테스트합니다 (정확한 핀 번호를 다시 지정하는 것을 잊지 마세요!).
 
-To do this, we’ll reset the game when button B is pressed on the ADKeypad. Once again, we use a forever loop and place an if-else statement inside to test if button B is pressed (don’t forget to specify the correct Pin number again!).
+게임을 다시 시작할 때 우리가해야 할 일이 무엇이 있습니까? 이 경우, 우리가해야 할 일은 새로운 팬케이크를 표시하고 시작 시간을 재설정하는 것입니다.
 
-What else do we need to do when we restart the game? In this case, all we need to do is to display a new pancake, and reset the starting time.
 
 ![](https://i.imgur.com/Oz44yck.png)
 
 
-### Step 7
+### 7 단계
 
-Now our game is working (hopefully)! Let’s add some more fun to the game! We have a buzzer attached to the micro:bit but haven’t used it yet! Note: Add this onto your existing code. It’s not a brand new section!
+이제 우리 게임이 잘 작동하고 있습니다! 게임에 재미를 더해 보겠습니다! 우리는 마이크로에 붙어있는 부저를 가지고 있지만 조금 사용하지는 않았습니다! 참고 : 기존 코드에 추가하십시오. 새로운 섹션이 아닙니다!
 
-Micro:bit has lots of pre-programmed music melodies available for us to use. Let’s add music to our game! Here we add a different melody to each outcome of the game. For mushy or burnt pancakes, we add sad melodies. But for perfect pancakes, we play the nyan-cat melody!
+마이크로 : 비트는 우리가 사용할 수있는 미리 프로그래밍 된 음악 멜로디가 많이 있습니다. 우리 게임에 음악을 추가합시다! 여기서 우리는 게임의 각 결과에 다른 멜로디를 추가합니다. 부드럽거나 불에 탄 팬케익을 위해 우리는 슬픈 멜로디를 더합니다. 그러나 완벽한 팬케이크를 위해, 우리는 nyan-cat 멜로디를 연주합니다!
 
-We need to set these melodies to play ‘once in the background’, otherwise it could pause the entire game until the melody is finished playing.
+우리는이 멜로디를 배경으로 한 번 재생하도록 설정해야합니다. 그렇지 않으면 멜로디가 끝날 때까지 전체 게임을 일시 중지 할 수 있습니다.
 
 ![](https://i.imgur.com/L6iOVxl.png)
 
 
-### Step 8
+### 8 단계
 
-Finally, let’s add some starting music and a starting message when we first start up the micro:bit. Note: Add this onto your existing code. It’s not a brand new section!
+마지막으로 마이크로 음악을 처음 시작할 때 시작 음악과 시작 메시지를 추가해 봅시다. 참고 : 기존 코드에 추가하십시오. 새로운 섹션이 아닙니다!
 
-We can use the buzzer once again to play a melody (once again we want it to play ‘once in background’). We can also display the name of the game as well!
+부저를 다시 사용하여 멜로디를 연주 할 수 있습니다 (다시 한 번 '배경 음악'으로 연주하기를 원합니다). 우리는 또한 게임의 이름을 표시 할 수 있습니다!
+
 
 ![](https://i.imgur.com/58yN3Cz.png)
 
 
-If you don't want to type these code by yourself, you can download directly from the link below.
+이 코드를 직접 입력하지 않으려면 아래 링크에서 직접 다운로드하십시오.
+
 
 [https://makecode.microbit.org/_aepYrcgwLFEy](https://makecode.microbit.org/_aepYrcgwLFEy)
 
-Or you can download from the page below.
+또는 아래 페이지에서 다운로드 할 수 있습니다.
 
 <div style="position:relative;height:0;padding-bottom:70%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://makecode.microbit.org/#pub:_aepYrcgwLFEy" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>
 
 
-### Cool Stuff!
+### 쿨!
 
-Now you’ve learned how to use the ADKeypad, you can use it to control LEDs, servos, and other components! You have also learned about if-else statements and creating your own functions, which can be useful in many micro:bit projects! Try customising your pancake game as well!
-
+ADKeypad 사용법을 배웠으므로 LED, 서보 및 기타 구성 요소를 제어하는 ​​데 사용할 수 있습니다. 또한 if-else 문에 대해 배웠고 많은 마이크로 : 비트 프로젝트에서 유용하게 쓸 수 있는 자신만의 함수를 만들수 있습니다! 팬케이크 게임을 튜닝 해보십시오!
