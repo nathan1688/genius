@@ -1,140 +1,134 @@
 ![](https://i.imgur.com/6MlU9At.jpg)
 
-Are your psychomotor skills as bad as mine?  
+순발력 테스트 게임을 만들어 봅시다!
 
 
-## Goals    
+## 목표
 ---
 
-We are going to create a game where the player must click on a key (on the ADKeypad) that corresponds to the column on which a random LED lights up (A for the first column and E for the last). The pace at which the LED lights up gets quicker and quicker as the game goes on. You’ll learn how to：  
+우리는 무작위 LED가 켜지는 열 (첫 번째 열은 A, 마지막 열은 E)에 해당하는 키 (ADKeypad의)를 클릭해야하는 게임을 만들 것입니다. 경기가 진행됨에 따라 LED가 켜지는 속도가 빨라지고 빨라집니다. 다음 방법을 배우게됩니다.
 
-- use an ADKeypad with the micro:bit.  
-- use functions recursively.  
-- use while loops.  
-- improve your finger dexterity!  
+- 마이크로 비트가있는 ADKeypad를 사용하십시오.
+- 재귀 적으로 함수를 사용하십시오.
+- while 루프를 사용하십시오.
+- 손재주를 향상 시키십시오!
 
 ![](https://i.imgur.com/pPKW0KA.jpg)  
 
-
-## Materials and Pre-requisites  
+## 재료 및 전제 조건
 ---
 
-1 x [BBC micro:bit](http://www.elecfreaks.com/estore/micro-bit-board.html)  
-1 x Micro USB cable  
-1 x F-F Jumper Wires  
-1 x [ADKeypad](http://www.elecfreaks.com/estore/octopus-adkeypad.html)  
-Or 
-[ElecFreaks Micro:bit Tinker Kit](http://www.elecfreaks.com/estore/elecfreaks-micro-bit-tinker-kit.html) (contains all components in the above.)  
+1 x [BBC 마이크로 : 비트] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+1 x 마이크로 USB 케이블
+1 x F-F 점퍼 전선
+1 x [ADKeypad] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163)
+또는
+[ElecFreaks Micro : 비트 팅커 키트] (http://www.icbanq.com/shop/templete_list.asp?t_idx=163) (위의 모든 구성 요소가 포함되어 있습니다.)
 
-You also need some experience about if-else statements, variables etc.  
+if-else 문, 변수 등에 대한 경험이 필요합니다.
 
 
-## How to Make    
+## 만드는 방법
 ---
 
-### Step 1  
+### 1 단계
 
 ![](https://i.imgur.com/36IKWCb.jpg)  
 
-Plug in your ADkeypad to Pin0, making sure the positive lead is connected to the yellow signal pin and the negative lead is connected to the black ground pin on the breakout board.  
+ADkeypad를 Pin0에 연결하고, 양극 도선이 노란색 신호 핀에 연결되고 음극선이 브레이크 아웃 보드의 검정색 접지 핀에 연결되어 있는지 확인하십시오.
 
-
-### Step 2  
+### 2 단계
 
 ![](https://i.imgur.com/ZElg0dw.png)  
+불이 켜지는 LED를 쉽게 랜덤화할 수 있도록 재귀 적으로 함수를 사용합니다. 재귀 적으로 사용되는 함수는 자신을 (!) 호출하여 최종 목표를 달성합니다. 이런 이유로 plotLight 함수를 만들었습니다. 기능을 다루지 않은 경우 여기로 이동하십시오.
 
-In order for the ease of randomisation of the LED that lights up, we will use a function recursively. A function used recursively will call itself (!) so as to acheive the end goal. I created the function plotLight for this reason. If you have not covered functions, go here.  
+그럼 난 0과 4 사이의 정수로 randomLightXIndex과 randomLightYIndex 두 변수를 설정합니다. 이것은 특정 LED에 해당합니다. 이렇게하면 불이 켜지는 LED의 무작위성 (실제 무작위성이 실제로 생성 될 수있는 위치에 대해 논의하지 말아야 함)을 보장하므로 매번 게임이 달라지고 예측할 수 없게됩니다.
 
-Then i set two variables randomLightXIndex and randomLightYIndex to integers between 0 and 4. This will correspond to the specific LED that lights up. Doing this will ensure randomness (let us not get into the discussion as to where true randomness can really be generated) of the LED that lights up so the game will be different and unpredictable every time.  
+또한 변수 bool을 true로 설정했습니다. 이것이 지금은 분명하지는 않지만, 나중에 유용 할 것입니다. (사실 이것은 나중에 함수가 나머지 부분이 더해진 후 추가하기로 결정한 나중의 추가 사항입니다. 나중에이 이유가 나타납니다). 이것은 코딩에서 일반적인 기술입니다 (특히 while 루프 사용).
 
-I also set the variable bool to true. While this may not be obvious now, it will come in handy later (in reality this was a later addition that I decided to add after the rest of the function was fleshed out. The reason for this will come to light later). This is a common technique in coding (especially with while loops).  
+어려움을 증가시키기 위해, 시간 변수가 유용 할 수 있다는 것이 내 판단이었다. 우리는이 LED를 사용하여 하나의 LED 조명과 다음 LED 사이의 정지 시간을 줄입니다. 우리는 게임을 불가능하게하지 않기 위해 0.5 초의 휴지 시간의 하한을 설정했습니다. 함수를 재귀 적으로 호출 할 때 일시 중지 시간을 수정하는 if 문은 함수가 호출 될 때마다 일시 중지 시간을 줄이는 것입니다.
 
-In order to increase the difficulty, it was my judgement that a  time variable could be useful. We use this later to decrease the pause time betwen one LED lighting up and the next. We have set a lower limit for the pause time at half a second so as to not make the game impossible. When we call the function recursively, the if-statement modifying the pause time is what will decrease the pause time everytime the function is called.  
-
-I have created a bunch of if-else statements inside a loop. These statements periodically check if a button on the keyboard was pressed and if the button corresponds to the x-coordinate of the LED that lights up. We have to do this because the pressing of the keypad does not emit an event that our event listeners in micro:bit’s core modules can respond to (like how it does for shaking or button presses). Thus, we had to create our own event listener. This event listener only runs as long as bool (which we created earlier) is true.  
+루프 안에 if-else 문을 많이 만들었습니다. 이 문은 키보드의 버튼이 눌려 졌는지 여부와 버튼이 켜져있는 LED의 x 좌표에 해당하는지 주기적으로 확인합니다. 키패드를 누르기 만하면 마이크로 비트의 핵심 모듈에서 이벤트 리스너가 흔들 리거나 버튼을 누르는 것과 같은 방식으로 반응 할 수 있기 때문에이 작업을 수행해야합니다. 따라서 우리는 자체 이벤트 리스너를 만들어야했습니다. 이 이벤트 리스너는 bool (이전에 생성 한)이 true 인 경우에만 실행됩니다.
 
 
-### Step 3  
+### 3 단계
 
 ![](https://i.imgur.com/0WIqH6P.png)  
 
-Inside the if-else statement, we check to see which key was pressed and if it corresponds to the column of the LED (x-coordinate). If it was, we CALL THE FUNCTION AGAIN. This is how recursive programming works. By calling the function again, we basically start over with a new LED. Note that when we call the function again we decrease the value of the time variable and thus the pause duration will be shorter.  
-  
-Note that I unplotted the point first LED. This is to ensure that we don’t have more than one LED in each round so as to not confuse the player. If you wanted to make the game more difficult, you could show multiple LEDs and play for only the most recent LED that lights up. Treat that as an extension!  
-Interestingly, I have set bool to false. Why?  
+if-else 문에서 어떤 키가 눌 렸는지, LED 열 (x 좌표)에 해당하는지 확인합니다. 그렇다면 우리는 다시 기능을 호출합니다. 이것은 재귀 프로그래밍이 작동하는 방법입니다. 함수를 다시 호출하면 기본적으로 새로운 LED로 시작합니다. 함수를 다시 호출 할 때 시간 변수의 값이 감소하므로 일시 중지 기간이 짧아집니다.
+  
+포인트 LED를 뽑지 않았다는 것에 유의하십시오. 이는 플레이어를 혼란스럽게하지 않도록 각 라운드마다 하나 이상의 LED가 없도록하기위한 것입니다. 게임을 더욱 어렵게 만들고 싶다면 여러 개의 LED를 표시하고 가장 최근에 켜진 LED 만 재생하면됩니다. 그것을 연장으로 간주하십시오!
+흥미롭게도 나는 bool을 false로 설정했다. 왜?
 
 
-### Step 4  
+### 4 단계
 
 ![](https://i.imgur.com/qKCa1J1.png)  
 
-The bool is set to false so as to terminate the above while loop. This is not strictly necessary and I initially disregarded this. However, it is important to note that terminating the while loop greatly improves the efficiency of your program and efficiency of our programs is something generally worth considering.  
+bool은 false로 설정되어 위의 while 루프를 종료합니다. 이것은 꼭 필요한 것은 아니며 처음에는 이것을 무시했습니다. 그러나 while 루프를 종료하면 프로그램의 효율성이 크게 향상되고 프로그램 효율성은 일반적으로 고려해야 할 가치가 있다는 점에 유의해야합니다.
 
-I have also created and called a function to handle the case where the player types the wrong key. This will be covered later.  
+또한 플레이어가 잘못된 키를 입력 한 경우를 처리하는 함수를 만들고 호출했습니다. 이것은 나중에 다루게 될 것입니다.
 
-### Step 5  
+### 5 단계
 
 ![](https://i.imgur.com/Bf7pG9W.png)  
+이 함수는 하나의 함수를 위해 꽤 많은 시간을 쏟았습니다! 익숙해진다면 시간이 더 짧아질 것입니다.
 
-That was quite a lot for one function! It can be quite a bit for a newbie at programming so let me go through that one more time.  
+불이 들어오는 LED를 결정하기 위해 0에서 4 사이의 임의의 정수를 사용합니다. (우리는 0으로 시작하는 색인을 사용하는데, 이는 왼쪽 상단이 (0,0)임을 의미 함)
 
-We use random integers between 0 and 4 for the determination of the LED that lights up. (Note that we use an index that starts with 0 – this means that the top left corner is (0,0))  
-
-In anticipation of the function being called in some point in the future, we decrease the pause time so that when that happens the game is more difficult.  
-  
-We run our own homemade event listener (the name betrays its function – it simply waits for an event to happen and acts with our preset code when it does). We use a while loop to listen for an event. If it does not find an event in one loop the if-else statements inside will not be activated and thus, it will go on to the next iteration. When the event does happen (in this case the pressing of the key), the if-else statement is activated from its slumber and thus, in this rather ingenious way, we have created an event listener.     (Extension: Browsers listen for events like clicks or keypad presses in the same way).  
+미래의 어떤 시점에서 함수가 호출되기를 기대하면서, 일시 중지 시간을 줄여 게임이 더 어려워 질 때까지 기다립니다.
+  
+우리는 자체 수제 이벤트 리스너를 운영합니다 (이 이름은 그 기능을 배제합니다. 이벤트가 발생하기를 기다리지 만 미리 설정된 코드로 작동합니다). while 루프를 사용하여 이벤트를 수신합니다. 한 루프에서 이벤트를 찾지 못하면 내부의 if-else 문은 활성화되지 않으므로 다음 반복으로 진행됩니다. 이벤트가 발생하면 (이 경우 키를 누름) if-else 문이 잠자기에서 활성화되므로이 독창적 인 방식으로 이벤트 리스너를 만들었습니다. (확장 : 브라우저는 클릭 또는 키패드 프레스와 같은 이벤트를 동일한 방식으로 수신합니다.)
 
 
-### Step 6  
+### 6 단계
 
 ![](https://i.imgur.com/Spxd5kb.png)  
 
-Inside each if-else statement, we have decided to end the game if the wrong keypad was pressed and tell the player what we think of him/her.  
+각 if-else 문에서 잘못된 키패드를 누르면 게임을 종료하고 플레이어에게 우리가 생각하는 것을 말해줍니다.
 
-If the right key was pressed, we immediately go on to the next LED light whilst ending the previous while loop or effeciency purposes (just to be clear, your code will still work but it’s best not to foster such bad habits).  
-Whilst going on to the next LED light, we make use of a concept called recursion. To fully understand the inner workings of recursions we must be familiar with concepts like execution contexts, which is beyond the scope of this tutorial.   
+오른쪽 키가 눌려지면, 우리는 즉시 루프 또는 효율성 목적을 종료하는 동안 다음 LED 표시등으로 이동합니다 (코드는 여전히 작동하지만 나쁜 습관을 조장하지 않는 것이 가장 좋습니다).
+다음 LED 조명으로 진행하는 동안 우리는 재귀 (recursion)라는 개념을 사용합니다. 재귀의 내부 동작을 완전히 이해하려면 실행 문맥과 같은 개념에 익숙해야합니다.이 튜토리얼의 범위를 벗어납니다.
 
 
-### Step 7  
+### 7 단계
 
 ![](https://i.imgur.com/tqrKglq.png)  
 
-That was a lot of work!!  
+많은 일이 있었습니다.
 
-But in the end, we have created a wonderful function that can be called recursively. It is remarkable that such a game can be simplified so much so that its crux is in one block of code!  
+결국 우리는 재귀 적으로 호출 할 수있는 멋진 함수를 만들었습니다. 게임이 단순화되어 그 핵심이 하나의 코드 블록에 있다는 것은 놀랍습니다!
 
 
-### Step 8  
+
+### 8 단계
 
 ![](https://i.imgur.com/ijyeL83.png)  
 
-Now we just want to tie up some loose strings.  
-The lose function is one that we will call when the player presses the wrong key. It is mostly self-explanatory and if you could get past the previous parts, it should be obvious what the code does.  
+이제는 짧게 코드를 짜 봅시다.
+잃는 기능은 플레이어가 잘못된 키를 누를 때 호출 할 함수입니다. 대부분은 설명이 필요하지 않으며 이전 파트를 넘길 수 있다면 코드가하는 일이 분명해야합니다.
 
 
-### Step 9  
-
+### 9 단계
 ![](https://i.imgur.com/Tn12M0k.png)  
 
-Now to start the first LED.  
-We call the function when the file loads. Due to the recursiveness of the function, the game will take care of itself thereafter with minimal effort from us. How is that for effeciency!  
+이제 첫 번째 LED를 시작하십시오.
+파일이 로드 될 때 함수를 호출합니다. 재귀 함수가 있어서, 게임은 최소한의 코딩으로 게임 그 자체를 실행 시킬 것입니다. 이 얼마나 효율적인가!
 
-If you don't want to type these code by yourself, you can download the whole program from the link below.  
-
+이 코드를 직접 입력하지 않으려면 아래 링크에서 전체 프로그램을 다운로드 할 수 있습니다.
 https://makecode.microbit.org/_eeyAFJMcg8z5  
 
-Or you can download from the page below.
+또는 아래 페이지에서 다운로드 할 수 있습니다.
 
 <div style="position: relative; height: 0; padding-bottom: 70%; overflow: hidden;"><iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://makecode.microbit.org/#pub:_eeyAFJMcg8z5" width="300" height="150" frameborder="0" sandbox="allow-popups allow-forms allow-scripts allow-same-origin"></iframe></div>  
 &nbsp;
 
 
-## Wonderful!    
+## 굉장해!    
 ---
 
 ![](https://i.imgur.com/HVAtYai.jpg)
 
-You have completed this tutorial! If you wish to challenge yourself further, go ahead and add a counter that counts the number of points a player gets before he/she loses. Clue: Create a variable called counter and increment it as you see fit. Remember to display it as well!
-Congratulations!
+이 메뉴얼을 완료했습니다! 자신에게 더 도전하고 싶다면, 플레이어가 잃기 전에 얻은 점수를 세는 카운터를 추가하십시오. 단서 : counter라는 변수를 만들고 적당하다고 생각되는만큼 증가시킵니다. 그것을 표시하는 것을 잊지 마십시오!
 
-This tutorial was possibly a level higher than the rest and if you got here you are definitely rocking it. If you didn’t, take solace in the fact that it took me weeks to get my head around concepts like recursions too. Good luck!
+이 튜토리얼은 나머지 부분보다 더 높은 레벨 일 가능성이 높습니다. 이것을 한다면 확실하게 달라져 있을 겁니다.. 당신이 이 메뉴얼을 보지 않고 만든다면 재귀와 같은 개념에 대해서 머리를 쓰는 데 몇 주가 걸렸습니다. 행운을 빕니다!
